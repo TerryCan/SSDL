@@ -1,2 +1,3 @@
 Git is a version systerm
-Git is free software 1	
+Git is free software 
+append GPL
