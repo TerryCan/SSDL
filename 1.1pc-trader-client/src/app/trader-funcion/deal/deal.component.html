@@ -1,0 +1,59 @@
+<div id="position-col">
+	<div class="opt-line">
+		<p>
+			商品
+			<select [(ngModel)]="SproductId">
+				<option value="">请选择</option>
+				<option *ngFor="let item of productList" [value]="item.productId">{{item.productName}} ({{item.productCode}})</option>
+			</select>
+		</p>
+		<p>
+			方向
+			<select [(ngModel)]="SorderDirect">
+				<option value="">请选择</option>
+				<option *ngFor="let item of bsType" [value]="item.value">{{item.name}}</option>
+			</select>
+		</p>
+		<p>
+			起始时间
+			<input type="date" [(ngModel)]="startTime" />
+		</p>
+		<p>
+			结束时间
+			<input type="date" [(ngModel)]="endTime" />
+		</p>
+		<p>
+			<a class="button white" (click)="search(true)">查询</a>
+		</p>
+		<div class="opt-loading" *ngIf="optLoading">
+			&nbsp;&nbsp; <i class="fa fa-cog fa-spin fa-spin"></i> 正在执行操作 ...
+		</div>
+	</div>
+	<div class="drag-table table-con">
+		<table width="100%" class="table listext" data-resizable-columns-id="table">
+			<thead>
+				<tr>
+					<th>成交单号</th>
+					<th>商品名称</th>
+					<th>成交量</th>
+					<th>成交价</th>
+					<th>时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of exportData">
+					<td>{{item.localMatchNo}}</td>
+					<td><a [ngClass]="{'b_red':item.orderDirect==1,'b_green':item.orderDirect==-1}">{{item.orderDirect==1?'买':'卖'}}</a>{{item.productName}}</td>
+					<td>{{item.matchVolume}}</td>
+					<td>{{item.matchPrice}}</td>
+					<td>{{item.updateTime | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="paging" *ngIf="totalData > rows">
+		<span>共 {{totalData}} 条数据 | 第{{page}}/{{totalPage}}页 | 每页{{rows}}条数据</span>
+		<a class="button white" [ngClass]="{'un-edit':page == 1}" (click)="prevPage()">上一页</a>
+		<a class="button white" [ngClass]="{'un-edit':page == totalPage}" (click)="nextPage()">下一页</a>
+	</div>
+</div>

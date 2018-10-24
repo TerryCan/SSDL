@@ -1,0 +1,138 @@
+#indexsManage {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	width: 500px;
+	height: 500px;
+	z-index: 9;
+	background: #ddd;
+	margin: -250px 0 0 -250px;
+	overflow: hidden;
+	border: 1px solid #666;
+	box-shadow: 0 0 5px #999;
+}
+#indexsManage .indexs-title {
+	height: 25px;
+	line-height: 25px;
+	font-size: 14px;
+	padding: 5px 10px;
+	background: #333;
+	color: #ddd;
+}
+#indexsManage .indexs-title .close {
+	font-size: 22px;
+	cursor: pointer;
+}
+#indexsManage .indexsContent {
+	padding: 10px;
+	height: 445px;
+}
+#indexsManage .indexsContent ul li {
+	font-size: 14px;
+	cursor: pointer;
+}
+#indexsManage .indexsContent ul li span {
+	padding: 5px;
+	display: block;
+	background: #f8f8f8;
+}
+#indexsManage .indexsContent ul li span.active {
+	background: #ffff00;
+}
+#indexsManage .indexsContent ul li li {
+	font-size: 12px;
+	padding-left: 20px;
+}
+#indexsManage .indexsContent .nav {
+	width: 60%;
+	background: #fff;
+	height: calc(100% - 20px);
+	padding:10px;
+	overflow: auto;
+}
+#indexsManage .indexsContent .btn-g {
+	width: 30%;
+	height: 100%;
+}
+#indexsManage .indexsContent .btn-g a {
+	display: block;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+#indexsManage .indexsContent a.un-edit {
+	color: #999;
+	border: 1px solid #999;
+}
+#indexsManage .indexsContent td,#indexsManage .indexsContent th {
+	font-size: 12px;
+}
+#indexsManage .indexsContent .top {
+	width: 100%;
+	overflow: hidden;
+}
+#indexsManage .indexsContent .top table {
+	width: 100%;
+}
+#indexsManage .indexsContent .top table:first-child td {
+	text-align: center;
+}
+#indexsManage .indexsContent .top table td,#indexsManage .indexsContent .top table th {
+	padding: 3px;
+}
+#indexsManage .indexsContent .top input {
+	width: calc(100% - 1px);
+}
+#indexsManage .indexsContent .top table th {
+	background: #999;
+}
+#indexsManage .indexsContent .table-con td {
+	border: 1px solid #999;
+	text-align: center;
+}
+#indexsManage .indexsContent .table-tt {
+	margin-top: 10px;
+}
+#indexsManage .indexsContent .table-con {
+	height: 140px;
+	overflow: auto;
+	background: #f8f8f8;
+}
+#indexsManage .indexsContent .table-con input {
+	width: 90%;
+}
+#indexsManage .indexsContent .center {
+	height: 180px;
+	width: 100%;
+	margin: 5px 0;
+}
+#indexsManage .indexsContent .center frame {
+	width: 100%;
+	height: 100%;
+}
+#indexsManage .indexsContent .bottom {
+	height: 32px;
+	line-height: 30px;
+	width: 100%;
+	overflow: hidden;
+}
+#indexsManage .indexsContent .bottom a {
+	padding: 0 15px;
+	margin: 0 5px;
+}
+#indexsManage .indexsList {
+	height: 320px;
+}
+#indexsManage  .indexsDes {
+	width: 100%;
+	height: 110px;
+	margin-top: 10px;
+}
+#indexsManage  .indexsDes textarea {
+	width: 99%;
+	height: 98%;
+	outline:none;
+	resize:none;
+}

@@ -1,0 +1,12 @@
+<div id="line-main"></div>
+<div class="params" *ngIf="showHoverInfo">
+	<p class="c_grey">时间:</p>
+	<p>{{hoverInfo.Date}}</p>
+	<p class="c_grey">价格:</p>
+	<p>{{hoverInfo.SignPriceClose}}</p>
+	<p class="c_grey">均价:</p>
+	<p>{{hoverInfo.QAveragePrice}}</p>
+	<p class="c_grey">涨跌幅:</p>
+	<p>{{hoverInfo.QChangeRate}}%</p>
+</div>
+<app-echart-loading *ngIf="isLoding"></app-echart-loading>

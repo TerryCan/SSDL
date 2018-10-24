@@ -1,0 +1,139 @@
+#trader {
+	margin: 5px 0 5px 5px;
+	height: calc(100% - 10px);
+}
+#trader .tab-title {
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	font-size: 12px;
+	overflow: hidden;
+}
+#trader a {
+	cursor: pointer;
+}
+#trader .tab-title a {
+	background: #fff;
+	display: block;
+	float: left;
+	padding: 0 10px;
+	border: 1px solid #999;
+	border-bottom: 0;
+}
+#trader .tab-content {
+	border: 1px solid #999;
+	height: 184px;
+	padding: 5px;
+	margin-top: -1px;
+	background: #fff;
+}
+#trader .tab-content td {
+	padding: 5px;
+	font-size: 14px;
+}
+#trader .tab-content td input.number,#trader .tab-content td select {
+	padding: 2px 4px;
+	width: 216px;
+}
+#trader .tab-content td input.num {
+	width: 160px;
+}
+#trader .tab-content .locked {
+	cursor: pointer;
+	line-height: 23px;
+}
+#trader .tab-content td select {
+	width: 222px;
+}
+#trader .opt-fun label {
+	float: right;
+}
+#trader .opt-fun label input,#trader .opt-fun label span {
+	float: left;
+}
+#trader .opt-fun label input {
+	margin-top: 1px;
+}
+#trader .opt-fun a {
+	float: right;
+	margin-right: 10px;
+	padding-right: 10px;
+	border-right: 1px solid #999;
+}
+#trader .trader-btn a {
+	display: inline-block;
+	width: 110px;
+	overflow: hidden;
+}
+#trader .trader-btn a span {
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	width: 80%;
+	margin: 0 auto;
+	font-size: 14px;
+}
+#trader .trader-btn a.red span:first-child {
+	border-bottom: 1px solid #990000;
+	font-size: 12px;
+}
+#trader .trader-btn a.green span:first-child {
+	border-bottom: 1px solid #006600;
+	font-size: 12px;
+}
+#trader .limit-price a {
+	width: 23px;
+	height: 23px;
+	line-height: 23px;
+	text-align: center;
+	border: 1px solid #999;
+	cursor: pointer;
+}
+#trader .limit-price input {
+	text-align: center;
+}
+#traderTips {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vh;
+	height: 100vh;
+}
+#trader mark {
+	padding: 2px 5px;
+	background: #ddd;
+	color: #333;
+}
+#trader #trader-list-choose {
+	position: absolute;
+	left: 5px;
+	bottom: 28px;
+	width: 216px;
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #999;
+}
+#trader #trader-list-choose .name {
+	font-size: 14px;
+	font-weight: bold;
+}
+#trader #trader-list-choose .code {
+	font-size: 12px;
+	color: #999;
+	margin-left: 5px;
+}
+#trader #trader-list-choose li {
+	padding: 5px 0;
+	border-bottom: 1px dashed #aaa;
+}
+#trader #trader-list-choose li:last-child {
+	border-bottom: 0;
+}
+#trader #trader-list-choose {
+	max-height: 500px;
+	overflow-y: auto;
+}
+#trader #trader-list-choose li:hover {
+	background: #eee;
+	cursor: pointer;
+}

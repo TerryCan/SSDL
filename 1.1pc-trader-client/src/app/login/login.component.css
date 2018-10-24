@@ -1,0 +1,166 @@
+#login-page {
+	height: calc(100vh - 4px);
+	border: 2px solid #444;
+	background: #222;
+	overflow: hidden;
+	position: relative;
+}
+#login-page #login-loading {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: #000;
+	opacity: 0.8;
+}
+#login-page #login-loading .loading {
+	text-align: center;
+	position: absolute;
+	width: 180px;
+	height: 40px;
+	left: 50%;
+	top: 50%;
+	margin: -20px 0 0 -90px;
+}
+#login-page .login-page-con {
+	height: calc(100% - 20px);
+}
+#login-page .top-banner {
+	margin: 0;
+	width: 320px;
+}
+#login-page .top-banner img {
+	width: 320px;
+	height: 100%;
+}
+#login-page .login-content {
+	width: 350px;
+	height: 310px;
+	position: relative;
+	zoom: 1;
+	padding: 15px;
+}
+#login-page .login-content label {
+	display: block;
+	position: relative;
+	zoom: 1;
+	margin-top: 5px;
+}
+#login-page .login-content label i {
+	position: absolute;
+	left: 0;
+	top: 6px;
+	color: #999;
+	width: 25px;
+	text-align: center;
+}
+#login-page .login-content label i.clear {
+	right: 6px;
+	left: auto;
+	cursor: pointer;
+}
+#login-page .login-bottom {
+	background: #333;
+	height: 19px;
+	line-height: 19px;
+	width: 100%;
+	border-top: 1px solid #444;
+	font-size: 12px;
+	color: #999;
+	position: relative;
+	zoom: 1;
+}
+#login-page .login-bottom span {
+	padding: 0 10px;
+}
+#login-page .login-content input.text,#login-page .login-content input.password,#login-page .login-content select {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+}
+#login-page .login-content select {
+	margin-top: 10px;
+	background: #333;
+	color: #999;
+	border-radius: 3px;
+	border: 1px solid #555;
+}
+#login-page .login-content input.text,#login-page .login-content input.password {
+	background: #222;
+	border: 0;
+	border-bottom: 1px solid #666;
+	padding-left: 30px;
+	padding-right: 30px;
+	width: calc(100% - 65px);
+	color: #ddd;
+}
+#login-page .login-btn {
+	margin-top: 10px;
+}
+#login-page .login-btn button {
+	width: 60%
+}
+#login-page .login-btn a {
+	width: 39%;
+	display: block;
+	line-height: 32px;
+	text-decoration: none;
+}
+#login-page .login-btn button {
+	padding: 8px 0;
+}
+#login-page .pwd-fun {
+	color: #999;
+	font-size: 12px;
+	margin-top: 10px;
+}
+#login-page .pwd-fun p span,#login-page .pwd-fun p input {
+	float: left;
+	margin: 0;
+}
+#login-page .login-error-msg {
+	font-size: 12px;
+	color: red;
+	margin-top: 7px;
+}
+#login-page .read-risktip {
+	margin-top: 10px;
+}
+#login-page .read-risktip a,#login-page .read-risktip input {
+	float: right;
+	font-size: 12px;
+	color: #ddd;
+	margin: 0;
+	cursor: pointer;
+}
+#login-page .read-risktip a {
+	text-decoration: underline;
+	padding-left: 5px;
+}
+#closePositionMessage {
+	cursor: pointer;
+}
+#loginClosePositionMsg {
+	position: absolute;
+	right: 5px;
+	bottom: 25px;
+	width: 500px;
+	height: 140px;
+	overflow: hidden;
+	background: #eee;
+	border: 1px solid #999;
+}
+#loginClosePositionMsg iframe {
+	width: 100%;
+	height: 100%;
+}
+#loginClosePositionMsg #loginClosePositionMsgClose {
+	position: absolute;
+	z-index: 1;
+	right: 20px;
+	bottom: 115px;
+	font-size: 16px;
+	color: #333;
+	cursor: pointer;
+}

@@ -1,0 +1,11 @@
+<app-header (trader)="trader($event)"></app-header>
+<section id="main-market" class="flex flex-between">
+	<div class="m-nav">
+		<a [ngClass]="{'active':currentMarket=='mainMarket'}" (click)="changeMarket('mainMarket')">期货</a>
+	</div>
+	<div class="r-con">
+		<div id="data-display" [ngClass]="{'up':showTrader,'down':!showTrader}"><router-outlet></router-outlet></div>
+	</div>
+</section>
+<div id="trader-market" *ngIf="showTrader" [ngClass]="{'up':!showTrader,'down':showTrader}"><app-trade-mark></app-trade-mark></div>
+<app-footer></app-footer>

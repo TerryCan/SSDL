@@ -1,0 +1,36 @@
+<div id="footer" class="flex flex-between">
+	<div class="topic">
+		<span><i class="fa fa-volume-up" aria-hidden="true"></i> 公告:</span>
+		<marquee scrollamount="5" onmouseout="this.start()" onmouseover="this.stop()">
+			<a (click)="showTopic = true">{{topic.title}}</a>
+		</marquee>
+	</div>
+	<div class="local-info">
+		<span class="wifi flex flex-between">
+			<em [ngClass]="{'bg-green':wifiStatus == 'connect','bg-red':wifiStatus == 'reconnecting','bg-yellow':wifiStatus == 'reconnect'}"></em>
+			<em [ngClass]="{'bg-green':wifiStatus == 'connect','bg-yellow':wifiStatus == 'reconnect'}"></em>
+			<em [ngClass]="{'bg-green':wifiStatus == 'connect','bg-yellow':wifiStatus == 'reconnect'}"></em>
+			<em [ngClass]="{'bg-green':wifiStatus == 'connect'}"></em>
+			<em [ngClass]="{'bg-green':wifiStatus == 'connect'}"></em>
+		</span>
+		<span>信号:</span>
+		<span class="local-time">{{localTime}}</span>
+	</div>
+</div>
+<div class="f-topic-detial" *ngIf="showTopic">
+	<div class="masker"></div>
+	<div class="f-topic-con">
+		<div class="title">
+			<span class="fl">系统公告</span>
+			<a class="fr close button white" (click)="showTopic = false">✖</a>
+		</div>
+		<div class="con">
+			<h3>{{topic.title}}</h3>
+			<div class="info">
+				来源: {{topic.createUserLoginName}} | 
+				{{topic.createTime | date:"yyyy-MM-dd HH:mm:ss"}}
+			</div>
+			<div class="a-con" [innerHtml]="topic.content"></div>
+		</div>
+	</div>
+</div>

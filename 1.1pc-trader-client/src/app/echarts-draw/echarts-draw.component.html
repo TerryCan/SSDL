@@ -1,0 +1,200 @@
+<section class="flex flex-between" id="echarts-main-column">
+	<div class="echarts-con">
+		<div class="top-nav flex flex-between">
+			<div class="back">
+				<a class="button gray" (click)="viewMarket()"><i class="fa fa-backward" aria-hidden="true"></i> 返回</a>
+				<!-- <a class="button yellow"><i class="fa fa-cog" aria-hidden="true"></i> 设置</a> -->
+			</div>
+			<div class="changeTime">
+				<a class="button white" [ngClass]="{'active':mainEchartType == 0}" (click)="changeChartTime(0)"><i class="fa fa-clock-o" aria-hidden="true"></i> 分时</a>
+				<a class="button white" [ngClass]="{'active':mainEchartType == 1}" (click)="changeChartTime(1)">1</a>
+				<a class="button white" [ngClass]="{'active':mainEchartType == 5}" (click)="changeChartTime(5)">5</a>
+				<a class="button white" [ngClass]="{'active':mainEchartType == 15}" (click)="changeChartTime(15)">15</a>
+				<a class="button white" [ngClass]="{'active':mainEchartType == 30}" (click)="changeChartTime(30)">30</a>
+				<a class="button white" [ngClass]="{'active':mainEchartType == 60}" (click)="changeChartTime(60)">60</a>
+				<a class="button white" [ngClass]="{'active':mainEchartType == 1440}" (click)="changeChartTime(1440)">日</a>
+			</div>
+		</div>
+		<div id="echarts-column">
+			<div id="line" class="block_2" *ngIf="mainEchartType == 0" (click)="c_lineCross()">
+				<app-line-main class="common-echarts-column"></app-line-main>
+				<app-line-vol class="common-echarts-column"></app-line-vol>
+			</div>
+			<div id="candel" class="block_3" *ngIf="mainEchartType != 0" (click)="c_cendelCross()">
+				<app-candel-main class="common-echarts-column"></app-candel-main>
+				<app-candel-macd class="common-echarts-column"></app-candel-macd>
+				<app-candel-vol class="common-echarts-column"></app-candel-vol>
+			</div>
+		</div>
+	</div>
+	<div class="market-info">
+		<h3>{{proInfo.productName}} [{{proInfo.productCode}}]</h3>
+		<div class="con" *ngIf="vc == 0">
+			<div class="ask">
+				<table>
+					<tr *ngIf="!show_five">
+						<td width="10%" rowspan="10" class="l-tt b_666 c_white">卖 盘</td>
+						<td width="50%" class="c_green"><a class="f16">➉</a> {{proInfo.QAskPrice[9] | number:'1.2-4'}}</td>
+						<td width="20%" class="c_yellow">{{proInfo.QAskQty[9]}}</td>
+						<td width="20%"><em [ngStyle]="{'width':proInfo.askW[9]+'%'}"></em></td>
+					</tr>
+					<tr *ngIf="!show_five">
+						<td class="c_green"><a class="f16">➈</a> {{proInfo.QAskPrice[8] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QAskQty[8]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.askW[8]+'%'}"></em></td>
+					</tr>
+					<tr *ngIf="!show_five">
+						<td class="c_green"><a class="f16">➇</a> {{proInfo.QAskPrice[7] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QAskQty[7]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.askW[7]+'%'}"></em></td>
+					</tr>
+					<tr *ngIf="!show_five">
+						<td class="c_green"><a class="f16">➆</a> {{proInfo.QAskPrice[6] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QAskQty[6]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.askW[6]+'%'}"></em></td>
+					</tr>
+					<tr *ngIf="!show_five">
+						<td class="c_green"><a class="f16">➅</a> {{proInfo.QAskPrice[5] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QAskQty[5]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.askW[5]+'%'}"></em></td>
+					</tr>
+					<tr>
+						<td *ngIf="show_five" width="10%" rowspan="5" class="l-tt b_666 c_white">卖 盘</td>
+						<td  width="50%" class="c_green"><a class="f16">➄</a> {{proInfo.QAskPrice[4] | number:'1.2-4'}}</td>
+						<td  width="20%" class="c_yellow">{{proInfo.QAskQty[4]}}</td>
+						<td  width="20%"><em [ngStyle]="{'width':proInfo.askW[4]+'%'}"></em></td>
+					</tr>
+					<tr>
+						<td class="c_green"><a class="f16">➃</a> {{proInfo.QAskPrice[3] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QAskQty[3]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.askW[3]+'%'}"></em></td>
+					</tr>
+					<tr>
+						<td class="c_green"><a class="f16">➂</a> {{proInfo.QAskPrice[2] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QAskQty[2]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.askW[2]+'%'}"></em></td>
+					</tr>
+					<tr>
+						<td class="c_green"><a class="f16">➁</a> {{proInfo.QAskPrice[1] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QAskQty[1]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.askW[1]+'%'}"></em></td>
+					</tr>
+					<tr>
+						<td class="c_green f16">➀ {{proInfo.QAskPrice[0] | number:'1.2-4'}}</td>
+						<td class="c_yellow f16">{{proInfo.QAskQty[0]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.askW[0]+'%'}"></em></td>
+					</tr>
+				</table>
+			</div>
+			<div class="bid">
+				<table>
+					<tr>
+						<td *ngIf="!show_five" width="10%" rowspan="10" class="l-tt b_666 c_white">买 盘</td>
+						<td *ngIf="show_five" width="10%" rowspan="5" class="l-tt b_666 c_white">买 盘</td>
+						<td width="50%" class="c_red f16">➀ {{proInfo.QBidPrice[0] | number:'1.2-4'}}</td>
+						<td width="20%" class="c_yellow f16">{{proInfo.QBidQty[0]}}</td>
+						<td width="20%"><em [ngStyle]="{'width':proInfo.bidW[0]+'%'}"></em></td>
+					</tr>
+					<tr>
+						<td class="c_red"><a class="f16">➁</a> {{proInfo.QBidPrice[1] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QBidQty[1]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.bidW[1]+'%'}"></em></td>
+					</tr>
+					<tr>
+						<td class="c_red"><a class="f16">➂</a> {{proInfo.QBidPrice[2] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QBidQty[2]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.bidW[2]+'%'}"></em></td>
+					</tr>
+					<tr>
+						<td class="c_red"><a class="f16">➃</a> {{proInfo.QBidPrice[3] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QBidQty[3]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.bidW[3]+'%'}"></em></td>
+					</tr>
+					<tr>
+						<td class="c_red"><a class="f16">➄</a> {{proInfo.QBidPrice[4] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QBidQty[4]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.bidW[4]+'%'}"></em></td>
+					</tr>
+					<tr *ngIf="!show_five">
+						<td class="c_red"><a class="f16">➅</a> {{proInfo.QBidPrice[5] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QBidQty[5]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.bidW[5]+'%'}"></em></td>
+					</tr>
+					<tr *ngIf="!show_five">
+						<td class="c_red"><a class="f16">➆</a> {{proInfo.QBidPrice[6] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QBidQty[6]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.bidW[6]+'%'}"></em></td>
+					</tr>
+					<tr *ngIf="!show_five">
+						<td class="c_red"><a class="f16">➇</a> {{proInfo.QBidPrice[7] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QBidQty[7]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.bidW[7]+'%'}"></em></td>
+					</tr>
+					<tr *ngIf="!show_five">
+						<td class="c_red"><a class="f16">➈</a> {{proInfo.QBidPrice[8] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QBidQty[8]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.bidW[8]+'%'}"></em></td>
+					</tr>
+					<tr *ngIf="!show_five">
+						<td class="c_red"><a class="f16">➉</a> {{proInfo.QBidPrice[9] | number:'1.2-4'}}</td>
+						<td class="c_yellow">{{proInfo.QBidQty[9]}}</td>
+						<td><em [ngStyle]="{'width':proInfo.bidW[9]+'%'}"></em></td>
+					</tr>
+				</table>
+			</div>
+			<div class="now-info">
+				<table>
+					<tr>
+						<td colspan="2" align="center" [ngClass]="{'b_red':proInfo.QChangeValue > 0,'b_green':proInfo.QChangeValue < 0}" class="new-price"><span>最新价: {{proInfo.QLastPrice  | number:'1.2-6'}}</span></td>
+					</tr>
+					<tr>
+						<td>涨跌: <span [ngClass]="{'c_red':proInfo.QChangeValue > 0,'c_green':proInfo.QChangeValue < 0}">{{proInfo.QChangeValue | number:'1.2-6'}}</span></td>
+						<td>昨结: <span class="c_white">{{proInfo.QPreClosingPrice | number:'1.2-6'}}</span></td>
+					</tr>
+					<tr>
+						<td>幅度: <span [ngClass]="{'c_red':proInfo.QChangeValue > 0,'c_green':proInfo.QChangeValue < 0}">{{proInfo.QChangeRate | number:'1.2-6'}} %</span></td>
+						<td>开盘: <span class="c_white">{{proInfo.QOpeningPrice | number:'1.2-6'}}</span></td>
+					</tr>
+					<tr>
+						<td>成交: <span class="c_white">{{proInfo.QTotalQty}}</span></td>
+						<td>最高: <span class="c_red">{{proInfo.QHighPrice | number:'1.2-6'}}</span></td>
+					</tr>
+					<tr>
+						<td>现手: <span class="c_yellow">{{proInfo.QLastQty}}</span></td>
+						<td>最低: <span class="c_green">{{proInfo.QLowPrice | number:'1.2-6'}}</span></td>
+					</tr>
+					<tr>
+						<td colspan="2">时间: {{proInfo.Stamp*1000 | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="now-vol" *ngIf="vc == 1">
+			<div class="title">
+				<table>
+					<tr class="b_666">
+						<td colspan="3" align="center">交易明细</td>
+					</tr>
+					<tr class="b_333">
+						<td width="40%">时间</td>
+						<td width="40%">价格</td>
+						<td width="20%">现手</td>
+					</tr>
+				</table>
+			</div>
+			<div class="content">
+				<table>
+					<tr *ngFor="let item of traderDetailList">
+						<td width="40%" class="c_grey">{{item.time}}</td>
+						<td width="40%">{{item.QLastPrice}}</td>
+						<td width="20%" class="c_yellow">{{item.QLastQty}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="change-info">
+			<a [ngClass]="{'active':vc == 0}" (click)="vc = 0;">实时行情</a>
+			<a [ngClass]="{'active':vc == 1}" (click)="vc = 1;">交易明细</a>
+		</div>
+	</div>
+</section>

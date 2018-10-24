@@ -1,0 +1,123 @@
+#setSLTP {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+#setSLTP .masker {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+}
+#setSLTP .confirmColumn {
+	background: #eee;
+	position: fixed;
+	left: 50%;
+	top: 20%;
+	margin-left: -200px;
+	width: 400px;
+	box-shadow: 0 0 5px #fff;
+}
+#setSLTP .confirmColumn .title {
+	padding: 10px;
+	background: #333;
+	color: #fff;
+	position: relative;
+	zoom: 1;
+}
+#setSLTP .confirmColumn .title b {
+	position: absolute;
+	right: 10px;
+	top: 6px;
+	display: block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-size: 16px;
+}
+#setSLTP .confirmColumn .content {
+	padding: 10px;
+}
+#setSLTP .confirmColumn .opt {
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #999; 
+}
+#setSLTP .confirmColumn .opt a {
+	padding: 10px 35px;
+	margin: 0 10px;
+}
+#setSLTP .confirmColumn .con table td {
+	font-size: 14px;
+	padding: 10px;
+	border: 1px solid #f8f8f8;
+	background: #fff;
+	vertical-align: middle;
+}
+#setSLTP .confirmColumn .set-tips {
+	padding: 5px;
+	border: 1px solid #999;
+	background: #ffffdd;
+}
+#setSLTP .confirmColumn .set-tips p {
+	font-size: 12px;
+	line-height: 22px;
+	text-indent: 2em;
+}
+#setSLTP .sltpOpt {
+	overflow: hidden;
+	height: 25px;
+	line-height: 25px;
+}
+#setSLTP .sltpOpt p,#setSLTP .sltpOpt label {
+	float: left;
+	height: 25px;
+	line-height: 25px;
+}
+#setSLTP .sltpOpt p input.num {
+	width: 90px;
+	border: 1px solid #999;
+	padding-left: 10px;
+}
+#setSLTP .sltpOpt p > * {
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	border-radius: 0;
+}
+#setSLTP .sltpOpt .effective {
+	margin-left: 15px;
+}
+#setSLTP .sltpOpt .effective > * {
+	float: left;
+}
+#setSLTP .sltpOpt .effective input {
+	margin-top: 7px;
+}
+#setSLTP .set-same-sltp {
+	overflow: hidden;
+	display: block;
+}
+#setSLTP .set-same-sltp input,#setSLTP .set-same-sltp span {
+	float: left;
+	margin-right: 5px;
+}
+#setSLTP .set-same-sltp span {
+	margin-top: 2px;
+}
+#setSLTP mark {
+	padding: 2px 5px;
+	background: #ddd;
+	color: #333;
+	font-size: 12px;
+	margin-left: 20px;
+}

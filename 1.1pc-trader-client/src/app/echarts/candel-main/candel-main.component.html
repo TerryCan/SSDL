@@ -1,0 +1,23 @@
+<div id="candel-main"></div>
+<div class="params" *ngIf="showHoverInfo">
+	<p class="c_grey">时间:</p>
+	<p>{{hoverInfo.date_ymd}}</p>
+	<p>{{hoverInfo.date_his}}</p>
+	<p class="c_grey">开盘:</p>
+	<p>{{hoverInfo.open}}</p>
+	<p class="c_grey">收盘:</p>
+	<p>{{hoverInfo.close}}</p>
+	<p class="c_grey">最低:</p>
+	<p class="c_green">{{hoverInfo.low}}</p>
+	<p class="c_grey">最高:</p>
+	<p class="c_red">{{hoverInfo.high}}</p>
+	<p class="c_grey">结算价:</p>
+	<p class="c_yellow">{{hoverInfo.settle}}</p>
+</div>
+<div class="index-text-candel" *ngIf="showHoverInfo">
+	<span class="c_yellow">MA5: {{hoverInfo.ma5}}</span>
+	<span class="c_white">MA10: {{hoverInfo.ma10}}</span>
+	<span class="c_pink">MA20: {{hoverInfo.ma20}}</span>
+	<span class="c_blue">MA30: {{hoverInfo.ma30}}</span>
+</div>
+<app-echart-loading *ngIf="isLoding"></app-echart-loading>

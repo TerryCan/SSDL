@@ -1,0 +1,107 @@
+#trader-column {
+	width: 100%;
+	height: 100%;
+}
+#trader-column .account-info {
+	padding: 5px 35px;
+	font-size: 12px;
+	background: #bbb;
+	color: #333;
+	height: 25px;
+	line-height: 25px;
+}
+#trader-column .account-info span {
+	margin-right: 10px;
+}
+#trader-column .account-info a {
+	color: #111;
+	font-weight: bold;
+}
+#trader-column .risk-warning {
+	-webkit-animation: redPulse 1.5s linear infinite; 
+	background-color: #6F0000;
+	color: #fff!important;
+}
+@-webkit-keyframes redPulse {
+	from { background-color: #6F0000; -webkit-box-shadow: 0 0 9px #333; }
+	50% { background-color: #cc0000; -webkit-box-shadow: 0 0 18px #e33100; }
+	to { background-color: #6F0000; -webkit-box-shadow: 0 0 9px #333; }
+}
+#trader-column #trade-column {
+	height: calc(100% - 36px);
+	border-top: 1px solid #eee;
+}
+#trader-column #trade-column .navList {
+	width: 150px;
+	height: 100%;
+	background: #fff;
+}
+#trader-column #trade-column .navList li {
+	width: 150px;
+	font-size: 14px;
+	overflow: hidden;
+	border-bottom: 1px solid #ddd;
+	height: 32.5px;
+}
+#trader-column #trade-column .navList li:hover {
+	background: #eee;
+	cursor: pointer;
+}
+#trader-column #trade-column .navList li.active {
+	background: #ddd;
+}
+#trader-column #trade-column .navList li.active i {
+	background: #ff9900;
+	color: #fff;
+}
+#trader-column #trade-column .navList li i {
+	float: left;
+	height: 32.5px;
+	width: 30px;
+	line-height: 32.5px;
+	text-align: center;
+	background: #f8f8f8;
+}
+#trader-column #trade-column .navList li a {
+	float: left;
+	width: 120px;
+	height: 32.5px;
+	line-height: 32.5px;
+	text-indent: 1em;
+}
+#trader-column #trade-column .content {
+	height: calc(100% - 10px);
+	width: calc(100% - 160px);
+	margin: 5px;
+	background: #eee;
+}
+#trader-column #trade-column .content.trade {
+	width: calc(100% - 460px);
+	position: relative;
+}
+#trader-column #trade-column .trade-column {
+	width: 300px;
+	height: 
+}
+#trader-column #trade-column .content.trade .tab {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 24px;
+	line-height: 24px;
+	border-top: 1px solid #999;
+	width: 100%;
+}
+#trader-column #trade-column .content.trade .tab a {
+	float: left;
+	height: 24px;
+	line-height: 24px;
+	background: #eee;
+	font-size: 12px;
+	padding: 0 10px;
+	cursor: pointer;
+}
+#trader-column #trade-column .content.trade .tab a.active {
+	background: #999;
+	color: #fff;
+}

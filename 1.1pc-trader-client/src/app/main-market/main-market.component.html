@@ -1,0 +1,10 @@
+<div class="industry">
+	<div class="plate">
+		<app-market-source *ngIf="showColumn == 0" (changeView)="changeView($event)"></app-market-source>
+		<app-echarts-draw *ngIf="showColumn == 1" (changeView)="changeView($event)"></app-echarts-draw>
+		<ul></ul>
+	</div>
+	<ul>
+		<li>-</li>
+	</ul>
+</div>

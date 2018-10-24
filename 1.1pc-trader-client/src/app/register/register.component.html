@@ -1,0 +1,145 @@
+<div id="register">
+	<div class="title">
+		<a (click)="goBack()"><i class="fa fa-step-backward"></i> 返回</a>
+		<i class="fa fa-user-plus"></i> 在线开户
+	</div>
+	<div id="main-container">
+		<div id="step1" class="step" [ngClass]="{'hide':currentStep != 1}">
+			<div id="register-tip"><iframe [src]="frameUrl" frameborder="0"></iframe></div>
+			<p class="read-risktip">
+				<label>
+					<input type="checkbox" [checked]="hasRead" [(ngModel)]="hasRead" name="hasRead" />
+					<span>我已阅读开户风险</span>
+				</label>
+			</p>
+			<p class="next-step"><a class="button" (click)="step(1)" [ngClass]="{'yellow':hasRead,'grey':!hasRead}">下一步</a></p>
+		</div>
+		<div id="step2" class="step" [ngClass]="{'hide':currentStep != 2}">
+			<div class="content">
+				<table>
+					<tr>
+						<td width="30%" align="right"><b class="c_red">*</b> 验证邮箱:</td>
+						<td width="40%"><input type="text" placeholder="请输入邮箱" maxlength="32" [(ngModel)]="email" /></td>
+						<td width="30%" class="c_red">{{emailError}}</td>
+					</tr>
+					<tr>
+						<td align="right"><b class="c_red">*</b> 手机号码:</td>
+						<td><input type="text" placeholder="请输入手机号码" maxlength="11" [(ngModel)]="phone" /></td>
+						<td class="c_red">{{phoneError}}</td>
+					</tr>
+					<tr>
+						<td align="right"><b class="c_red">*</b> 机构代码:</td>
+						<td><input type="text" placeholder="请输入机构代码" maxlength="32" [(ngModel)]="orgCode" /></td>
+						<td class="c_red">{{orgCodeError}}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="2" class="c_red f12">
+							只有在获取并填写邮箱验证码后,才能进行"下一步"操作
+						</td>
+					</tr>
+					<tr>
+						<td align="right"><b class="c_red">*</b> 邮箱验证码:</td>
+						<td>
+							<input type="text" placeholder="请输入获取的邮箱验证码" [(ngModel)]="checkEmailCode" />
+						</td>
+						<td class="c_red">{{checkEmailCodeError}}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><a class="button white getEmailCheckCode" (click)="getEmailCheckCode()">{{countDownText}}</a></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<p class="next-step">
+				<a class="button black" (click)="currentStep = 1">上一步</a>
+				<a class="button" (click)="step(2)" [ngClass]="{'yellow':hasGetCheckPostMailCode,'grey':!hasGetCheckPostMailCode}">下一步</a>
+			</p>
+		</div>
+		<div id="step3" class="step" [ngClass]="{'hide':currentStep != 3}">
+			<div class="content">
+				<table>
+					<tr>
+						<th colspan="6">用户信息</th>
+					</tr>
+					<tr>
+						<td align="right">邮箱:</td>
+						<td><span class="text-over-flow">{{email}}</span></td>
+						<td align="right">机构编码:</td>
+						<td><span class="text-over-flow">{{orgCode}}</span></td>
+						<td align="right">角色类型:</td>
+						<td><span class="text-over-flow">客户角色</span></td>
+					</tr>
+					<tr *ngIf="!isEditRegisterInfo">
+						<td align="right"><b class="c_red">*</b> 登录账号:</td>
+						<td><input type="text" maxlength="32" [(ngModel)]="userName" /></td>
+						<td align="right"><b class="c_red">*</b> 密码:</td>
+						<td><input type="password" maxlength="32" [(ngModel)]="password" /></td>
+						<td align="right">手机号码:</td>
+						<td>{{phone}}</td>
+					</tr>
+					<tr *ngIf="isEditRegisterInfo">
+						<td align="right"><b class="c_red">*</b> 登录账号:</td>
+						<td><span class="text-over-flow">{{userName}}</span></td>
+						<td align="right">手机号码:</td>
+						<td><span class="text-over-flow">{{phone}}</span></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th colspan="6">用户实名信息</th>
+					</tr>
+					<tr>
+						<td align="right"><b class="c_red">*</b> 真实姓名:</td>
+						<td><input type="text" maxlength="32" [(ngModel)]="name" /></td>
+						<td align="right"><b class="c_red">*</b> 证件类型:</td>
+						<td>
+							<select [(ngModel)]="certificateValue">
+								<option value="">请选择证件类型</option>
+								<option *ngFor="let item of certificateType" [value]="item.id">{{item.text}}</option>
+							</select>
+						</td>
+						<td align="right"><b class="c_red">*</b> 证件号码:</td>
+						<td><input type="text" maxlength="32" [(ngModel)]="certificateCode" /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="center"><img src="{{img1url}}" id="uploadImg1" height="100"></td>
+						<td></td>
+						<td align="center"><img src="{{img2url}}" id="uploadImg2" height="100"></td>
+						<td></td>
+						<td align="center"><img src="{{img3url}}" id="uploadImg3" height="100"></td>
+					</tr>
+					<tr>
+						<td align="right"><b class="c_red">*</b> 正面照片:</td>
+						<td align="center">
+							<button class="button white" (click)="click_up('uploadImgBtn1',1)">上传正面照</button>
+							<div class="hide"><input type="file" id="uploadImgBtn1" name="uploadImgBtn1" /></div>
+						</td>
+						<td align="right"><b class="c_red">*</b> 背面照片:</td>
+						<td align="center">
+							<button class="button white" (click)="click_up('uploadImgBtn2',2)">上传背面照</button>
+							<div class="hide"><input type="file" id="uploadImgBtn2" name="uploadImgBtn2" /></div>
+						</td>
+						<td align="right"><b class="c_red">*</b> 手持照片:</td>
+						<td align="center">
+							<button class="button white" (click)="click_up('uploadImgBtn3',3)">上传手持照</button>
+							<div class="hide"><input type="file" id="uploadImgBtn3" name="uploadImgBtn3" /></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p class="next-step">
+				<a class="button black" (click)="currentStep = 2" *ngIf="!isEditRegisterInfo">上一步</a>
+				<a class="button yellow" (click)="step(3)">完成开户</a>
+			</p>
+		</div>
+		<div id="step4" class="step" [ngClass]="{'hide':currentStep != 4}">
+			<div class="fanalyText">
+				<p class="c_red">{{fanalyText}}</p>
+				<p>如遇见问题,请拨打客服热线: {{baseConfig.hotLine}} 咨询,谢谢 ...</p>
+			</div>
+		</div>
+	</div>
+</div>

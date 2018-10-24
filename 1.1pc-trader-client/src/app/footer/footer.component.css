@@ -1,0 +1,154 @@
+#footer {
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	background: #eee;
+	padding: 0 10px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: calc(100% - 20px);
+}
+#footer .topic {
+	width: 70%;
+}
+#footer .local-info {
+	width: 30%
+}
+#footer .topic span {
+	width: 60px;
+}
+#footer .topic marquee {
+	width: calc(100% - 80px);
+}
+#footer .topic > * {
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+}
+#footer .local-info > * {
+	float: right;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+}
+#footer .local-info .wifi {
+	width: 25px;
+	margin-left: 5px;
+	-webkit-transform:scaleY(-1);
+}
+#footer .local-info .wifi em {
+	width: 4px;
+	border: 1px solid #999;
+	margin: 0 1px 0 0;
+	margin-top: 3px;
+}
+#footer .local-info .wifi em:nth-child(5){
+	height: 12px;
+}
+#footer .local-info .wifi em:nth-child(4){
+	height: 10px;
+}
+#footer .local-info .wifi em:nth-child(3){
+	height: 8px;
+}
+#footer .local-info .wifi em:nth-child(2){
+	height: 6px;
+}
+#footer .local-info .wifi em:nth-child(1){
+	height: 4px;
+}
+#footer .local-time {
+	margin-right: 10px;
+}
+#footer .bg-green {
+	background: #33FF00;
+}
+#footer .bg-yellow {
+	background: #ff9900;
+}
+#footer .bg-red {
+	background: #ff0000;
+}
+#footer .topic a {
+	cursor: pointer;
+}
+.f-topic-detial {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9;
+}
+.f-topic-detial .masker {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0.8;
+	background: #000;
+}
+.f-topic-con {
+	position: fixed;
+	left: 50%;
+	top: 20%;
+	width: 500px;
+	height: 400px;
+	overflow: hidden;
+	margin: 0px 0 0 -250px;
+	background: #eee;
+	z-index: 2;
+	box-shadow: 0 0 5px #fff;
+}
+.f-topic-con .title {
+	overflow: hidden;
+	background: #666;
+	color: #fff;
+	height: 25px;
+	line-height: 25px;
+	font-size: 14px;
+	padding: 5px 10px;
+}
+.f-topic-con .con {
+	height: calc(100% - 55px);
+	width: calc(100% - 20px);
+	overflow: auto;
+	padding: 10px;
+}
+.f-topic-con a.close {
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 16px;
+	margin-top: 1px;
+}
+.f-topic-con .con h3 {
+	font-size: 16px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #999;
+}
+.f-topic-con .con .info {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.f-topic-con .a-con {
+	line-height: 23px;
+	font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+

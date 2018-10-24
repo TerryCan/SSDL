@@ -1,0 +1,58 @@
+<div id="market-source">
+	<div id="title-move">
+		<i class="fa fa-angle-double-left fl" (click)="dataMoveLeft()"></i>
+		<i class="fa fa-angle-double-right fr" (click)="dataMoveRight()"></i>
+	</div>
+	<div class="title dataMoveCon">
+		<span class="w20"></span>
+		<span class="w30"><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></span>
+		<span class="w40">币种</span>
+		<span class="w80">代码</span>
+		<span class="w120">合约名称</span>
+		<span class="w80">最新价</span>
+		<span class="moveContent">买价</span>
+		<span class="moveContent">卖价</span>
+		<span class="moveContent">买量</span>
+		<span class="moveContent">卖量</span>
+		<span class="moveContent">成交量</span>
+		<span class="moveContent">持仓量</span>
+		<span class="moveContent">昨收</span>
+		<span class="moveContent">涨跌</span>
+		<span class="moveContent">幅度%</span>
+		<span class="moveContent">开盘</span>
+		<span class="moveContent">最高</span>
+		<span class="moveContent">最低</span>
+		<span class="moveContent">振幅</span>
+		<span class="moveContent">时间</span>
+	</div>
+	<div class="content dataMoveCon" id="proList" (scroll)="dataScroll()">
+		<ul>
+			<li *ngFor="let item of productList;index as i;" (click)="choosePro(i,item.productId)" (dblclick)="viewProDetail(item.productId)" [ngClass]="{'active':i == c_i}" [ngStyle]="{'height':liHeight+'px','line-height':liHeight+'px'}">
+				<span class="t-c w20">
+					<i *ngIf="item.QChangeValue > 0" class="fa c_red fa-long-arrow-up" aria-hidden="true"></i>
+					<i *ngIf="item.QChangeValue < 0" class="fa fa-long-arrow-down c_green" aria-hidden="true"></i>
+				</span>
+				<span class="c_yellow w30">{{i+1}}</span>
+				<span class="c_yellow w40">{{item.currencyCode}}</span>
+				<span class="c_yellow w80">{{item.productCode}}</span>
+				<span class="c_yellow w120">{{item.productName}}</span>
+				<span class="bold w80" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0,'changePrice1':item.isChangeLastPrice == 1,'changePrice2':item.isChangeLastPrice == 2}">{{item.QLastPrice}}</span>
+				<span class="moveContent bold" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0,'changePrice1':item.isBidPrice == 1,'changePrice2':item.isBidPrice == 2}">{{item.QBidPrice}}</span>
+				<span class="moveContent bold" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0,'changePrice1':item.isChangeAskPrice == 1,'changePrice2':item.isChangeAskPrice == 2}">{{item.QAskPrice}}</span>
+				<span class="c_yellow moveContent">{{item.QBidQty[0]}}</span>
+				<span class="c_yellow moveContent">{{item.QAskQty[0]}}</span>
+				<span class="c_yellow moveContent">{{item.QTotalQty}}</span>
+				<span class="c_yellow moveContent">{{item.QPositionQty}}</span>
+				<span class="moveContent" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0}">{{item.QPreClosingPrice}}</span>
+				<span class="moveContent" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0}">{{item.QChangeValue}}</span>
+				<span class="moveContent" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0}">{{item.QChangeRate}}</span>
+				<span class="moveContent" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0}">{{item.QOpeningPrice}}</span>
+				<span class="moveContent" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0}">{{item.QHighPrice}}</span>
+				<span class="moveContent" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0}">{{item.QLowPrice}}</span>
+				<span class="moveContent" [ngClass]="{'c_red':item.QChangeValue > 0,'c_green':item.QChangeValue < 0}">{{item.QSwing}}</span>
+				<span class="moveContent">{{item.Stamp | date:"HH:mm:ss"}}</span>
+			</li>
+		</ul>
+	</div>
+</div>
+

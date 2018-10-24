@@ -1,0 +1,88 @@
+<div class="masker" *ngIf="showUserInformation"></div>
+<div id="userInformation" *ngIf="showUserInformation">
+	<div class="title flex flex-between">
+		<span>用户资料</span>
+		<a class="close" (click)="showUserInformation = false">×</a>
+	</div>
+	<div class="content">
+		<table>
+			<tr>
+				<td class="b_white" width="18%"><i class="fa fa-user-circle-o" aria-hidden="true"></i> 用户名:</td>
+				<td class="b_white" width="32%">{{userInfo.loginName}}</td>
+				<td class="b_white" width="18%"><i class="fa fa-mobile" aria-hidden="true"></i> 手机号码:</td>
+				<td class="b_white" width="32%">{{userInfo.phone}}</td>
+			</tr>
+			<tr>
+				<td class="b_white"><i class="fa fa-envelope" aria-hidden="true"></i> 电子邮箱:</td>
+				<td class="b_white" colspan='3'>{{userInfo.email}}</td>
+			</tr>
+			<tr>
+				<td class="b_white"><i class="fa fa-id-card-o" aria-hidden="true"></i> 机构名称:</td>
+				<td class="b_white" colspan='3'>{{userInfo.orgName}}</td>
+			</tr>
+			<tr>
+				<td class="b_white"><i class="fa fa-server" aria-hidden="true"></i> 机构编号:</td>
+				<td class="b_white">{{userInfo.orgNum}}</td>
+				<td class="b_white"><i class="fa fa-step-forward" aria-hidden="true"></i> 上次登录:</td>
+				<td class="b_white">{{userInfo.lastLoginTime | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+			</tr>
+			<tr>
+				<td class="b_white"></td>
+				<td class="b_white" colspan='3'>
+					<a class="button yellow" (click)="changeAccount()">切换账号</a>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">修改密码:</td>
+				<td colspan="3">
+					<select [(ngModel)]="PWDtype">
+						<option value="-1">请选择修改密码类型</option>
+						<option value="1">个人密码</option>
+						<option value="2">资金密码</option>
+					</select>
+				</td>
+			</tr>
+			<tr *ngIf="PWDtype == 1">
+				<td align="right">旧密码:</td>
+				<td><input type="password" maxlength="32" [(ngModel)]="personalOldPwd" /></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr *ngIf="PWDtype == 1">
+				<td align="right">新密码:</td>
+				<td><input type="password" maxlength="32" [(ngModel)]="personalNewPwd" /></td>
+				<td align="right">确认密码:</td>
+				<td><input type="password" maxlength="32" [(ngModel)]="personalRepeatPwd" /></td>
+			</tr>
+			<tr *ngIf="PWDtype == 1">
+				<td></td>
+				<td colspan="3">
+					<a class="button yellow fl" (click)="changePersonalPwd()">修改个人密码</a>
+					<span class="fr c_red error-msg" *ngIf="personalErrorMsg != ''">{{personalErrorMsg}}</span>
+				</td>
+			</tr>
+			<tr *ngIf="PWDtype == 2">
+				<td align="right">旧密码:</td>
+				<td><input type="password" maxlength="32" [(ngModel)]="goldOldPwd" /></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr *ngIf="PWDtype == 2">
+				<td align="right">新密码:</td>
+				<td><input type="password" maxlength="32" [(ngModel)]="goldNewPwd" /></td>
+				<td align="right">确认密码:</td>
+				<td><input type="password" maxlength="32" [(ngModel)]="goldRepeatPwd" /></td>
+			</tr>
+			<tr *ngIf="PWDtype == 2">
+				<td></td>
+				<td colspan='3'>
+					<span class="fl">
+						<a class="button yellow" (click)="changeGoldPwd()">修改资金密码</a>
+						<a class="button red" (click)="resetGoldPwd()">重置资金密码</a>
+					</span>
+					<span class="fr c_red error-msg" *ngIf="goldErrorMsg != ''">{{goldErrorMsg}}</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

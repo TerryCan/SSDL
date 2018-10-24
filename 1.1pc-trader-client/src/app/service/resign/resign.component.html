@@ -1,0 +1,77 @@
+<div class="masker"></div>
+<div id="resign">
+	<div class="title flex flex-between">
+		<span>账号换绑</span>
+		<a class="close" (click)="clearHeaderNav()">×</a>
+	</div>
+	<div class="content">
+		<table>
+			<tr>
+				<td align="right"><b class="c_red">*</b> 银行卡号:</td>
+				<td><input type="tel" maxlength="20" [(ngModel)]="bankCar" placeholder="请输入银行卡号" /></td>
+				<td align="right"><b class="c_red">*</b> 开户姓名:</td>
+				<td><input type="text" maxlength="18" [(ngModel)]="name" placeholder="请输入开户姓名" /></td>
+			</tr>
+			<tr>
+				<td align="right"><b class="c_red">*</b> 身份证号:</td>
+				<td><input type="tel" maxlength="32" [(ngModel)]="certificateCode" placeholder="请输入身份证号" /></td>
+				<td align="right"><b class="c_red">*</b> 手机号:</td>
+				<td><input type="tel" maxlength="11" [(ngModel)]="phone" placeholder="请输入手机号" /></td>
+			</tr>
+			<tr>
+				<td align="right"><b class="c_red">*</b> 所属省份:</td>
+				<td>
+					<select [(ngModel)]="provinceVal" (ngModelChange)="getCity(provinceVal)">
+
+						<option *ngFor="let item of provinceList" [value]="item.id">{{item.provinceName}}</option>
+					</select>
+				</td>
+				<td align="right"><b class="c_red">*</b> 所属城市:</td>
+				<td>
+					<select [(ngModel)]="cityVal" (ngModelChange)="getSubBankList()">
+						<option value="-1">请选择</option>
+						<option *ngFor="let item of cityList" [value]="item.bankAreaCode">{{item.cityName}}</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align="right"><b class="c_red">*</b> 所属银行:</td>
+				<td colspan="3">
+					<select [(ngModel)]="bankVal" (ngModelChange)="getSubBankList()">
+						<option value="-1">请选择</option>
+						<option *ngFor="let item of bankList" [value]="item.bankCode">{{item.bankName}}</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align="right"><b class="c_red">*</b> 支行名称:</td>
+				<td>
+					<select [(ngModel)]="subBankVal">
+						<option value="">请选择</option>
+						<option *ngFor="let item of subBankLsit" [value]="item.id">{{item.bankName}}</option>
+					</select>
+				</td>
+				<td align="right"><b class="c_red">*</b> 支行行号:</td>
+				<td><input type="text" maxlength="32" [value]="subBankVal" readonly="readonly" /></td>
+			</tr>
+			<tr>
+				<td align="right"><b class="c_red">*</b> 资金密码:</td>
+				<td><input type="password" maxlength="32" [(ngModel)]="goldPWD" placeholder="6~32位密码" /></td>
+				<td align="right"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan='3'>
+					<p class="fl">
+						<a class="button yellow" (click)="resign()">换绑</a>
+						<a class="button white" (click)="clearHeaderNav()">取消</a>
+					</p>
+					<span class="error-msg c_red fr" *ngIf="errorMsg !== ''">
+						<i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{errorMsg}}
+					</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

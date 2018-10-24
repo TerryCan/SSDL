@@ -1,0 +1,8 @@
+<div id="candel-macd"></div>
+<div class="index-text-candel sub" *ngIf="showHoverInfo">
+	<span class="c_white">MACD(12,26,9)</span>
+	<span class="c_yellow">DIFF: {{hoverInfo.diff | number:'1.2-6'}}</span>
+	<span class="c_pink">DEA: {{hoverInfo.dea | number:'1.2-6'}}</span>
+	<span class="c_white">MACD: {{hoverInfo.macd | number:'1.2-6'}}</span>
+</div>
+<app-echart-loading *ngIf="isLoding"></app-echart-loading>

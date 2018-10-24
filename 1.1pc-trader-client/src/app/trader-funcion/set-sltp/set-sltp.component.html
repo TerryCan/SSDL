@@ -1,0 +1,77 @@
+<div id="setSLTP" *ngIf="setSLTP">
+	<div class="masker"></div>
+	<div class="confirmColumn">
+		<div class="title">设置 止盈/止损 <b class="button white" (click)="setSLTP = false;">✖</b></div>
+		<div class="content">
+			<div class="con">
+				<div class="set-tips">
+					<p class="c_red">操作提示:</p>
+					<p>1.止盈止损功能设置成功以后长期有效。隔夜、客户端关闭、电脑休眠或者断网时，止盈止损功能都有效。</p>
+					<p>2.止盈止损仅对下单后的持仓生效，手动或者其他方式平仓后，止盈止损功能不会再次生效。</p>
+					<p>3.客户通过交易改变仓位，在不改变持仓方向情况下，止盈止损设置按照最新持仓情况生效。</p>
+				</div>
+				<table width="100%">
+					<tr>
+						<td align="right">商品名称:</td>
+						<td colspan='3'>{{name}}</td>
+					</tr>
+					<tr>
+						<td align="right">最新价:</td>
+						<td><b>{{price}}</b></td>
+						<td align="right">持仓价:</td>
+						<td>{{positionPrice}}</td>
+					</tr>
+					<tr>
+						<td align="right">委托数量:</td>
+						<td>{{vol}}</td>
+						<td align="right">方向:</td>
+						<td>{{(dir == 1)?'买':'卖'}}</td>
+					</tr>
+					<tr>
+						<td align="right">止盈:</td>
+						<td colspan='3'>
+							<div class="sltpOpt">
+								<p>
+									<input type="number" step="{{unionMinPrices}}" class="num" [(ngModel)]="tp" (ngModelChange)="changeTP()" oninput="if(value.length>10)value=value.slice(0,10)" (blur)="tp = (tp).toFixed(unionMinPricesFloatNumber);" />
+								</p>
+								<label class="effective">
+									<input type="checkbox" [(ngModel)]="winFlag" />
+									<span>生效</span>
+								</label>
+								<mark>{{TPdang}} 档</mark>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">止损:</td>
+						<td colspan='3'>
+							<div class="sltpOpt">
+								<p>
+									<input type="number" step="{{unionMinPrices}}" class="num" [(ngModel)]="sl" (ngModelChange)="changeSL()" oninput="if(value.length>10)value=value.slice(0,10)" (blur)="sl = (sl).toFixed(unionMinPricesFloatNumber);" />
+								</p>
+								<label class="effective">
+									<input type="checkbox" [(ngModel)]="lossFlag" />
+									<span>生效</span>
+								</label>
+								<mark>{{SLdang}} 档</mark>
+							</div>
+						</td>
+					</tr>
+					<tr *ngIf="positionId != ''">
+						<td></td>
+						<td colspan="3">
+							<label class="set-same-sltp">
+								<input type="checkbox" [(ngModel)]="allSame" />
+								<span>同种商品设置相同止盈止损</span>
+							</label>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="opt">
+				<a class="button yellow" (click)="setWinLoss()">确定</a>
+				<a class="button white" (click)="setSLTP = false;">取消</a>
+			</div>
+		</div>
+	</div>
+</div>

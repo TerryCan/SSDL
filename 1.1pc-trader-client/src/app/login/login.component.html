@@ -1,0 +1,72 @@
+<section id="login-page">
+	<div class="flex flex-between login-page-con">
+		<p class="top-banner">
+			<img src="../../assets/localData/{{nowConfigData.id}}/banner.jpg" />
+		</p>
+		<div class="login-content">
+			<p class="logo t-c"><img src="../../assets/localData/{{nowConfigData.id}}/logo.png" height="30" /></p>
+			<form autocomplete="off">
+				<input style="display:none" type="text" name="orgcode"/>
+				<input style="display:none" type="text" name="username"/>
+				<input style="display:none" type="password" name="password"/>
+				<label>
+					<select (change)="changeLine()" [(ngModel)]="chooseLine" name="chooseLine">
+						<option *ngFor="let item of configData" [value]="item.id">{{item.name}}</option>
+					</select>
+				</label>
+				<label>
+					<i class="fa fa-id-card"></i>
+					<input type="text" class="text" placeholder="请输入机构代码" name="orgcode" [(ngModel)]="orgcode" />
+					<i class="clear fa fa-window-close" (click)="orgcode = ''"></i>
+				</label>
+				<label>
+					<i class="fa fa-user"></i>
+					<input type="text" class="text" placeholder="请输入登录账号" name="username" [(ngModel)]="username" />
+					<i class="clear fa fa-window-close" (click)="username = ''"></i>
+				</label>
+				<label>
+					<i class="fa fa-lock"></i>
+					<input type="password" class="password" placeholder="请输入登录密码" name="password" [(ngModel)]="password" />
+					<i class="clear fa fa-window-close" (click)="password = ''"></i>
+				</label>
+				<div class="flex flex-between pwd-fun">
+					<p><input type="checkbox" name="savePWD" [(ngModel)]="savePWD" (change)="isSavePWD()" /> <span> &nbsp;记住密码</span></p>
+					<a class="c_grey" [routerLink]="['/forgetPassword']">忘记密码?</a>
+				</div>
+				<div class="flex flex-between login-btn">
+					<button class="button yellow login" (click)="logIn()"><i class="fa fa-sign-in" aria-hidden="true"></i> 登录</button>
+					<a class="button white register" [routerLink]="['/register']" (click)="clearUserInfo()">线上开户</a>
+				</div>
+				<p class="read-risktip">
+					<a [routerLink]="['/riskTip']">我已阅读交易风险提示</a>
+					<input type="checkbox" name="hasReadRisktip" [checked]="hasReadRisktip" [(ngModel)]="hasReadRisktip" />
+				</p>
+			</form>
+		</div>
+		<div id="login-loading" *ngIf="loginLoading">
+			<div class="loading">
+				<h2>- 正在登录应用 -</h2>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<div class="login-bottom flex flex-between">
+		<span>
+			<i class="fa fa-cogs" aria-hidden="true"></i>
+			系统版本号: {{sysVersion}} | 客服热线: {{nowConfigData.hotLine}}
+		</span>
+		<span id="closePositionMessage" (click)="ClosePositionMsg()">
+			<i class="fa fa-mobile" aria-hidden="true"></i> 应急短信平仓
+		</span>
+		<div id="loginClosePositionMsg" *ngIf="showClosePositionMsg">
+			<a id="loginClosePositionMsgClose" class="fa fa-close" (click)="showClosePositionMsg = false"></a>
+			<iframe [src]="frameUrl"></iframe>
+		</div>
+	</div>
+</section>

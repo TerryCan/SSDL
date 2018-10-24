@@ -1,0 +1,68 @@
+<div id="position-col">
+	<div class="opt-line">
+		<p>
+			结算方向
+			<select [(ngModel)]="ioType">
+				<option value="">请选择</option>
+				<option *ngFor="let item of ioTypeList" [value]="item.value">{{item.name}}</option>
+			</select>
+		</p>
+		<p>
+			流水类型
+			<select [(ngModel)]="flowType">
+				<option value="">请选择</option>
+				<option *ngFor="let item of flowTypeList" [value]="item.value">{{item.name}}</option>
+			</select>
+		</p>
+		<p>
+			流水状态
+			<select [(ngModel)]="flowState">
+				<option value="">请选择</option>
+				<option *ngFor="let item of flowStateList" [value]="item.value">{{item.name}}</option>
+			</select>
+		</p>
+		<p>
+			起始时间
+			<input type="date" [(ngModel)]="startTime" />
+		</p>
+		<p>
+			结束时间
+			<input type="date" [(ngModel)]="endTime" />
+		</p>
+		<p>
+			<a class="button white" (click)="search(true)">查询</a>
+		</p>
+		<div class="opt-loading" *ngIf="optLoading">
+			&nbsp;&nbsp; <i class="fa fa-cog fa-spin fa-spin"></i> 正在执行操作 ...
+		</div>
+	</div>
+	<div class="drag-table table-con">
+		<table width="100%" class="table listext" data-resizable-columns-id="table">
+			<thead>
+				<tr>
+					<th>币种</th>
+					<th>结算方向</th>
+					<th>流水类型</th>
+					<th>流水状态</th>
+					<th>金额</th>
+					<th>创建时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of exportData">
+					<td>{{currencyText(item.currency)}}</td>
+					<td><a [ngClass]="{'b_red':item.ioType==1,'b_green':item.ioType==-1}">{{ioTypeText(item.ioType)}}</a></td>
+					<td>{{flowTypeText(item.tradeType)}}</td>
+					<td>{{flowStateText(item.state)}}</td>
+					<td>{{item.ioNumber}}</td>
+					<td>{{item.createTime | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="paging" *ngIf="totalData > rows">
+		<span>共 {{totalData}} 条数据 | 第{{page}}/{{totalPage}}页 | 每页{{rows}}条数据</span>
+		<a class="button white" [ngClass]="{'un-edit':page == 1}" (click)="prevPage()">上一页</a>
+		<a class="button white" [ngClass]="{'un-edit':page == totalPage}" (click)="nextPage()">下一页</a>
+	</div>
+</div>

@@ -1,0 +1,37 @@
+<div id="topic">
+	<div class="search">
+		<label>标题: </label>
+		<input type="text" placeholder="按标题搜索 ..." [(ngModel)]="sTitle" (ngModelChange)="searchTitle()" />
+		<label>类型: </label>
+		<select [(ngModel)]="readFlag" (ngModelChange)="readFlagFilter()">
+			<option value="-1">全部</option>
+			<option value="0">未读</option>
+			<option value="1">已读</option>
+		</select>
+		<a class="button white" (click)="getNoticeList()"><i class="fa fa-refresh" aria-hidden="true"></i> 刷新公告列表</a>
+	</div>
+	<div class="content">
+		<ul>
+			<li class="no-data" *ngIf="topicList.length < 1">
+				<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 暂无公告数据
+			</li>
+			<li *ngFor="let item of filterTopicList;let i = index;" (click)="readNotice(i,item.noticeId,item.readFlag)">
+				<i class="fa fl" [ngClass]="{'fa-envelope':item.readFlag == 0,'fa-envelope-open':item.readFlag != 0}" aria-hidden="true"></i>
+				<span class="fl bold">{{item.title}}</span>
+				<span class="fl">来源: {{item.createUserLoginName}}</span>
+				<span class="fr c_grey f12">发布时间: {{item.createTime | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+			</li>
+		</ul>
+	</div>
+	<div class="topic-detail" *ngIf="readDetail">
+		<h3>
+			<span class="fl"><i class="fa fa-volume-up" aria-hidden="true"></i> {{currentTopic.title}}</span>
+			<span class="back-topic-list fr" (click)="readDetail = false"><i class="fa fa-fast-backward" aria-hidden="true"></i> 返回公告列表</span>
+		</h3>
+		<div class="info">
+			<span>来源: {{currentTopic.createUserLoginName}}</span> | 
+			<span>{{currentTopic.createTime | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+		</div>
+		<div class="topic-content" [innerHtml]="currentTopic.content"></div>
+	</div>
+</div>

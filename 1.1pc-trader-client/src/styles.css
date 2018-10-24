@@ -1,0 +1,404 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* You can add global styles to this file, and also import other style files */
+/*
+ * Baseline styles
+ */
+body {
+  background: #ddd;
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  color: #ccc;
+  margin: 0;
+  font: .8em verdana;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.t-c {
+  text-align: center!important;
+}
+.f12 {
+  font-size: 12px!important;
+}
+.f14 {
+  font-size: 14px!important;
+}
+.f16 {
+  font-size: 16px!important;
+}
+.f18 {
+  font-size: 18px!important;
+}
+.f20 {
+  font-size: 20px!important;
+}
+.bold {
+  font-weight: bold;
+}
+.hide {
+  display: none!important;
+}
+.w10 {
+  width: 10px!important;
+}
+.w20 {
+  width: 20px!important;
+}
+.w30 {
+  width: 30px!important;
+}
+.w40 {
+  width: 40px!important;
+}
+.w50 {
+  width: 50px!important;
+}
+.w60 {
+  width: 60px!important;
+}
+.w70 {
+  width: 70px!important;
+}
+.w80 {
+  width: 80px!important;
+}
+.w90 {
+  width: 90px!important;
+}
+.w100 {
+  width: 100px!important;
+}
+.w110 {
+  width: 110px!important;
+}
+.w120 {
+  width: 120px!important;
+}
+.w130 {
+  width: 130px!important;
+}
+.w140 {
+  width: 140px!important;
+}
+.w150 {
+  width: 150px!important;
+}
+.w100p {
+  width: 100%;
+}
+.w10p {
+  width: 10%;
+}
+.w12-5p {
+  width: 12.5%;
+}
+.b-r-n {
+  border-right: 0!important;
+}
+.b-l-n {
+  border-left: 0!important;
+}
+.c_yellow {
+  color: yellow!important;
+}
+.c_red {
+  color: #ff0033!important;
+  font-weight: bold;
+}
+.c_green {
+  color: #33FF00!important;
+}
+.c_deepgreen {
+  color: green!important;
+}
+.c_white {
+  color: white!important;
+}
+.c_grey {
+  color: #999!important;
+}
+.c_pink {
+  color: #ff33ff!important;
+}
+.c_blue {
+  color: #0099cc!important;
+}
+
+.b_blue {
+  background: #0099cc!important;
+}
+.b_red {
+  background: red!important;
+}
+.b_green {
+  background: green!important;
+}
+.b_333 {
+  background: #333!important;
+}
+.b_666 {
+  background: #666!important;
+}
+.b_999 {
+  background: #999!important;
+}
+.b_white {
+  background: #fff!important;
+}
+.b_yellow {
+  background: #ffff00!important;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.relative {
+  position: relative;
+  zoom: 1;
+}
+/*
+ * Loading Dots
+ * Can we use pseudo elements here instead :after?
+ */
+.loading span {
+  display: inline-block;
+  vertical-align: middle;
+  width: .6em;
+  height: .6em;
+  margin: .19em;
+  background: #007DB6;
+  border-radius: .6em;
+  animation: loading 1s infinite alternate;
+}
+
+/*
+ * Dots Colors
+ * Smarter targeting vs nth-of-type?
+ */
+.loading span:nth-of-type(2) {
+  background: #008FB2;
+  animation-delay: 0.2s;
+}
+.loading span:nth-of-type(3) {
+  background: #009B9E;
+  animation-delay: 0.4s;
+}
+.loading span:nth-of-type(4) {
+  background: #00A77D;
+  animation-delay: 0.6s;
+}
+.loading span:nth-of-type(5) {
+  background: #00B247;
+  animation-delay: 0.8s;
+}
+.loading span:nth-of-type(6) {
+  background: #5AB027;
+  animation-delay: 1.0s;
+}
+.loading span:nth-of-type(7) {
+  background: #A0B61E;
+  animation-delay: 1.2s;
+}
+
+/*
+ * Animation keyframes
+ * Use transition opacity instead of keyframes?
+ */
+@keyframes loading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+  width: 4px;
+  height: 8px;
+  border-radius: 10px;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0px 0px 3px #333;
+  background: #999;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  border: 1px solid #333;
+  background-color: #666;
+}
+.flex {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+}
+.flex-between {
+  justify-content:space-between;
+}
+.flex-center {
+  justify-content:center;
+}
+
+.h300 {
+  height: 300px;
+}
+.h310 {
+  height: 310px;
+}
+.button {
+    font-family: 'museoslab500';
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-user-select: none;
+         -o-user-select: none;
+            user-select: none;
+    display: inline-block;
+    cursor: pointer;
+    opacity: 0.9;
+    
+    color: #FFF;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-shadow: rgba(0,0,0,0.9) 0px 1px 2px;
+    
+    background: #434343;
+    border: 1px solid #242424;
+   
+    -webkit-border-radius: 4px;
+     -khtml-border-radius: 4px;
+       -moz-border-radius: 4px;
+         -o-border-radius: 4px;
+            border-radius: 4px;
+    -webkit-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+     -khtml-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+       -moz-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+         -o-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+            box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+    -webkit-transition: all 0.1s linear;
+     -khtml-transition: all 0.1s linear;
+       -moz-transition: all 0.1s linear;
+         -o-transition: all 0.1s linear;
+            transition: all 0.1s linear;
+}
+.button:hover {
+    -webkit-box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+     -khtml-box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+       -moz-box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+         -o-box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+            box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+}
+.button:active {
+    -webkit-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px,inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+     -khtml-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px,inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+       -moz-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+         -o-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+            box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+}
+
+.button.gray {background: #555;}
+.button.blue {background: #3a617e;}
+.button.green {background: #009900;}
+.button.red {background: #cc0000;}
+.button.purple {background: #4b3f5e;}
+.button.orange {background: #624529;}
+.button.yellow {background: #ff9900;}
+.button.white {background: #ddd; color: #333; text-shadow: rgba(0,0,0,0.3) 0px 1px 2px;}
+
+.index-text-line {
+  position: absolute;
+  left: 75px;
+  top: 5px;
+  font-size: 12px;
+  padding: 5px;
+  background: #000;
+  opacity: 0.8;
+  border-radius: 3px;
+}
+.index-text-candel {
+  position: absolute;
+  left: 85px;
+  top: 15px;
+  font-size: 12px;
+  padding: 5px;
+  background: #000;
+  opacity: 0.8;
+  border-radius: 3px;
+}
+.index-text-candel.sub {
+  top: 5px;
+}
+.index-text-line span,.index-text-candel span {
+  padding-right: 15px;
+}
+.drag-table .listext{
+  width:100%;
+}
+.drag-table .rc-handle-container {
+  position:relative;
+  height: 0px;
+}
+.drag-table .rc-handle{
+  position:absolute;
+  width:7px;
+  cursor:ew-resize;
+  *cursor:pointer;
+  margin-left:-3px;
+}

@@ -1,0 +1,55 @@
+#data-display.down {
+	height: calc(100vh - 50px);
+}
+#data-display.up {
+	height: calc(100vh - 320px);
+}
+#trader-market {
+	position: relative;
+	z-index: 1;
+}
+#trader-market.down {
+	height: 270px;
+}
+#trader-market.up {
+	height: 0px;
+}
+#main-market {
+	height: 100%;
+	width: 100%;
+	background: #666;
+}
+#main-market .m-nav {
+	position: relative;
+	zoom: 1;
+	width: 30px;
+	height: 100%;
+	font-size: 12px;
+}
+#main-market .m-nav a {
+	cursor: pointer;
+	display: block;
+	width: 20px;
+	text-align: center;
+	padding: 15px 3px;
+	border: 1px solid #444;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	float: right;
+	background: #444;
+	border-right: 0;
+	color: #888;
+	line-height: 20px;
+	margin: 0.5px 0;
+}
+#main-market .m-nav a:first-child {
+	margin-top: 25px;
+}
+#main-market .m-nav a.active {
+	background: #222;
+	color: #ddd;
+}
+#main-market > .r-con {
+	background: #222;
+	width: calc(100% - 30px);
+}

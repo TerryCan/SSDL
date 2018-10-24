@@ -1,0 +1,93 @@
+#topic {
+	width: 100%;
+	height: 100%;
+	background: #f8f8f8;
+	position: relative;
+	zoom: 1;
+}
+#topic .search {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background: #ddd;
+	color: #333;
+	font-size: 14px;
+}
+#topic .search a.button {
+	font-size: 12px;
+	padding: 3px 10px;
+	line-height: 18px;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+#topic .search label {
+	margin-left: 20px;
+}
+#topic .search > * {
+	float: left;
+}
+#topic .search input,#topic .search select {
+	padding: 3px;
+	margin-left: 10px;
+	margin-top: 7px;
+}
+#topic .content {
+	width: 100%;
+	height: calc(100% - 40px);
+	overflow: auto;
+}
+#topic .content li {
+	padding: 10px 20px;
+	font-size: 14px;
+	cursor: pointer;
+	border-bottom: 1px dashed #ddd;
+	overflow: hidden;
+}
+#topic .content li i.fa-envelope {
+	color: #ff9900;
+}
+#topic .content li i.fa-envelope-open {
+	color: #999;
+}
+#topic .content li span {
+	margin-left: 15px;
+}
+#topic .content li:hover {
+	background: #eee;
+}
+#topic .topic-detail {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #f8f8f8;
+	overflow: hidden;
+}
+#topic .topic-detail h3 {
+	font-size: 18px;
+	padding: 10px 20px;
+	height: 20px;
+	line-height: 20px;
+	border-bottom: 1px solid #666;
+	margin-bottom: 10px;
+}
+#topic .topic-detail .info {
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	font-size: 14px;
+	padding: 0 20px;
+}
+#topic .topic-detail .topic-content {
+	width: calc(100% - 40px);
+	height: calc(100% - 130px);
+	overflow: auto;
+	padding: 20px;
+	line-height: 23px;
+}
+#topic .topic-detail .back-topic-list {
+	font-size: 14px;
+	color: #999;
+	cursor: pointer;
+}

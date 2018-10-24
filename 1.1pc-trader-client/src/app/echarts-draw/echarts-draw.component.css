@@ -1,0 +1,199 @@
+#echarts-main-column {
+	width: 100%;
+	height: 100%;
+}
+#echarts-main-column .market-info {
+	width: 250px;
+	height: 100%;
+	background: #111;
+}
+#echarts-main-column .echarts-con {
+	width: calc(100% - 251px);
+	height: 100%;
+	border-right: 1px solid #666;
+}
+#echarts-main-column .echarts-con .top-nav {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	background: #666;
+	font-size: 12px;
+	border-bottom: 1px solid #999;
+	border-top: 1px solid #222;
+}
+#echarts-main-column .echarts-con .top-nav a {
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	margin: 0;
+	text-align: center;
+	cursor: pointer;
+	border-top: 0;
+	border-bottom: 0;
+	padding: 0 10px;
+}
+#echarts-main-column .echarts-con a.button {
+	border-radius: 0px;
+}
+#echarts-main-column .market-info h3 {
+	height: 26px;
+	line-height: 26px;
+	border-bottom: 1px solid #666;
+	font-size: 16px;
+	text-align: center;
+	color: yellow;
+	font-weight: 300;
+}
+#echarts-main-column .market-info .con,#echarts-main-column .market-info .now-vol {
+	width: 100%;
+	height: calc(100% - 50px);
+	overflow: hidden;
+}
+#echarts-main-column .market-info .now-vol .title {
+	height: 50px;
+}
+#echarts-main-column .market-info .now-vol .title table {
+	height: 100%;
+}
+#echarts-main-column .market-info .now-vol .title table td {
+	color: #ddd;
+	font-size: 14px;
+}
+#echarts-main-column .market-info .ask td,#echarts-main-column .market-info .bid td {
+	
+}
+#echarts-main-column .market-info .ask,#echarts-main-column .market-info .bid {
+	height: calc((100% - 180px) / 2);
+}
+#echarts-main-column .market-info .ask em {
+	height: 60%;
+	background: red;
+	display: block;
+	float: right;
+}
+#echarts-main-column .market-info .bid em {
+	height: 60%;
+	background: green;
+	display: block;
+	float: right;
+}
+#echarts-main-column table {
+	height: 100%;
+	width: 100%;
+}
+#echarts-main-column table td {
+	padding: 2px 5px;
+}
+#echarts-main-column table td {
+	color: #ddd;
+	font-size: 12px;
+	vertical-align: middle;
+	border: 1px solid #444;
+	border-left: 0;
+}
+#echarts-main-column .now-info {
+	height: 180px;
+	min-height: 110px;
+}
+#echarts-main-column .now-info td {
+	color: #999;
+}
+#echarts-main-column .now-info .new-price {
+	width: 100%;
+	vertical-align:middle;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: #333;
+	color: #fff!important;
+	font-size: 14px;
+    -webkit-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+     -khtml-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+       -moz-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+         -o-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+            box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+    -webkit-transition: all 0.1s linear;
+     -khtml-transition: all 0.1s linear;
+       -moz-transition: all 0.1s linear;
+         -o-transition: all 0.1s linear;
+            transition: all 0.1s linear;
+}
+#echarts-main-column .market-info .l-tt {
+	line-height: 35px;
+	color: #888;
+}
+#echarts-main-column .market-info .change-info {
+	height: 23px;
+	line-height: 23px;
+	font-size: 12px;
+	background: #999;
+}
+#echarts-main-column .market-info .change-info a {
+	cursor: pointer;
+	color: #333;
+	float: left;
+	height: 23px;
+	line-height: 23px;
+	padding: 0 10px;
+
+}
+#echarts-main-column .market-info .change-info a.active {
+	background: #ddd;
+}
+#echarts-main-column #echarts-column {
+	width: 100%;
+	height: calc(100% - 27px)!important;
+}
+#echarts-main-column .changeTime a.active {
+	background: #333;
+	color: #ddd;
+}
+#echarts-main-column #echarts-column {
+	height: 100%;
+	background: #222;
+}
+#echarts-main-column #echarts-column > div {
+	display: block;
+	height: 100%;
+	background: #141414;
+}
+#echarts-main-column #echarts-column .block_2 > .common-echarts-column,#echarts-main-column #echarts-column .block_3 > .common-echarts-column {
+	display: block;
+	position: relative;
+	zoom: 1;
+}
+#echarts-main-column #echarts-column .block_2 > .common-echarts-column:first-child {
+	width: 100%;
+	height: 70%;
+}
+#echarts-main-column #echarts-column .block_2 > .common-echarts-column:last-child {
+	width: 100%;
+	height: 30%;
+}
+#echarts-main-column #echarts-column .block_3 > .common-echarts-column:nth-child(1) {
+	width: 100%;
+	height: 60%;
+}
+#echarts-main-column #echarts-column .block_3 > .common-echarts-column:nth-child(2) {
+	width: 100%;
+	height: 20%;
+}
+#echarts-main-column #echarts-column .block_3 > .common-echarts-column:nth-child(3) {
+	width: 100%;
+	height: 20%;
+}
+#echarts-main-column .new-price span {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+}
+#echarts-main-column .now-vol .content {
+	height: calc(100% - 50px);
+	overflow: auto;
+}
+#echarts-main-column .now-vol .content td {
+	padding: 5px;
+}
+#echarts-main-column .now-vol .content table {
+	height: auto;
+}

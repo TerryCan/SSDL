@@ -1,0 +1,108 @@
+#register .title {
+	padding: 10px;
+	background: #333;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	position: relative;
+	zoom: 1;
+}
+#register .title a {
+	color: #fff;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+#register #main-container {
+	padding: 10px;
+	width: calc(100% - 20px);
+	height: calc(100vh - 60px);
+}
+#register .step {
+	width: 100%;
+	height: 100%;
+}
+#register #step1 #register-tip {
+	height: calc(100% - 90px);
+}
+#register #step1 .read-risktip {
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	margin: 10px 0;
+}
+#register .next-step {
+	height: 52px;
+	line-height: 52px;
+	text-align:  center;
+	border-top: 1px solid #999;
+}
+#register .next-step a {
+	padding: 5px 50px!important;
+	line-height: 30px;
+	margin-top: 10px;
+}
+#register #step1 iframe {
+	width: 100%;
+	height: 100%;
+	background: #fff;
+}
+#register #step2 .content,
+#register #step3 .content,
+#register #step4 .content {
+	height: calc(100% - 53px);
+	overflow: auto;
+}
+#register table {
+	width: 100%;
+}
+#register input[type="text"],
+#register input[type="password"],
+#register select {
+	padding: 5px;
+	width: calc(100% - 14px);
+}
+#register table td {
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #999;
+	font-size: 14px;
+}
+#register .getEmailCheckCode {
+	padding: 10px 20px;
+}
+#register #step3 input[type="file"] {
+	width: 190px;
+}
+#register #step3 th {
+	text-align: left;
+	background: #eee;
+	padding: 10px;
+	border: 1px solid #999;
+	font-size: 14px;
+}
+#register #step3 .button {
+	padding: 5px 20px;
+}
+#register .fanalyText {
+	position: absolute;
+	left: 50%;
+	top: 20%;
+	width: 380px;
+	margin-left: -200px;
+	border: 1px solid #999;
+	padding: 10px;
+	background: #fff;
+}
+#register .fanalyText p {
+	font-size: 14px;
+	line-height: 23px;
+}
+#register span.text-over-flow {
+	height: 29px;
+	line-height: 29px;
+	width: 145px;
+	overflow: hidden;
+}
+

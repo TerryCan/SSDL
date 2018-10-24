@@ -1,0 +1,82 @@
+<div id="indexsManage" [ngClass]="{'hide':!isShowIndexsManage}">
+	<div class="indexs-title flex flex-between">
+		<span>指标公式管理</span>
+		<a class="close" (click)="isShowIndexsManage = false;">×</a>
+	</div>
+	<div class="indexsContent" [ngClass]="{'hide':isEditIndexs}">
+		<div class="indexsList flex flex-between">
+			<div class="nav">
+				<ul>
+					<li *ngFor="let item of formulaManagement">
+						<span (click)="item.open = !item.open;clearIndex();"><i class="fa" [ngClass]="{'fa-plus-square-o':!item.open,'fa-minus-square-o':item.open}" aria-hidden="true"></i> {{item.name}}</span>
+						<ul>
+							<li *ngFor="let subItem of item.sub" [ngClass]="{'hide':!item.open}">
+								<span (click)="subItem.open = !subItem.open;clearIndex();">
+									<i class="fa fa-plus-square-o" [ngClass]="{'fa-plus-square-o':!subItem.open,'fa-minus-square-o':subItem.open}" aria-hidden="true"></i>
+									{{subItem.name}}
+								 </span>
+								<ul>
+									<li *ngFor="let ssubItem of subItem.sub" [ngClass]="{'hide':!subItem.open}">
+										<span (click)="getIndexs(ssubItem.zid)" [ngClass]="{'active':ssubItem.zid == c_index}"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> {{ssubItem.name}}</span>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="btn-g">
+				<a class="button white un-edit">新 建</a>
+				<a class="button white" [ngClass]="{'un-edit':c_index == ''}" (click)="toEditIndexs()">修 改</a>
+			</div>
+		</div>
+		<div class="indexsDes">
+			<textarea readonly="readonly">{{currentEditIndexs.des}}</textarea>
+		</div>
+	</div>
+	<div class="indexsContent" [ngClass]="{'hide':!isEditIndexs}">
+		<div class="top">
+			<table>
+				<tr>
+					<td width="10%">名称: </td>
+					<td width="40%"><input type="text" readonly="readonly" [value]="currentEditIndexs.name" /></td>
+					<td width="10%">属性: </td>
+					<td width="40%"><input type="text" readonly="readonly" [value]="currentEditIndexs.attr" /></td>
+				</tr>
+				<tr>
+					<td>描述: </td>
+					<td colspan="3"><input type="text" readonly="readonly" [value]="currentEditIndexs.sub_name" /></td>
+				</tr>
+			</table>
+			<div class="table-tt">
+				<table>
+					<tr>
+						<th width="20%">参数</th>
+						<th width="20%">名称</th>
+						<th width="20%">最小值</th>
+						<th width="20%">最大值</th>
+						<th width="20%">默认值</th>
+					</tr>
+				</table>
+			</div>
+			<div class="table-con">
+				<table>
+					<tr *ngFor="let item of currentEditIndexs.data;index as i">
+						<td width="20%">{{i+1}}</td>
+						<td width="20%">{{item.params}}</td>
+						<td width="20%">{{item.min}}</td>
+						<td width="20%">{{item.max}}</td>
+						<td width="20%"><input type="text" class="t-c" [(ngModel)]="item.code" /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="center" id="indexsCode"></div>
+		<div class="bottom">
+			<a class="button white fl" (click)="isEditIndexs = false;">返回</a>
+			<a class="button white fr un-edit">插入函数</a>
+			<a class="button white fr">测试公式</a>
+			<a class="button white fr un-edit">确定修改</a>
+		</div>
+	</div>
+</div>

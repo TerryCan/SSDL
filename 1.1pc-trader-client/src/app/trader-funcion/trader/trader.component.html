@@ -1,0 +1,67 @@
+<div id="trader">
+	<div class="tab-title">
+		<a>传统下单</a>
+	</div>
+	<div class="tab-content">
+		<table>
+			<tr>
+				<td width="15%">合约:</td>
+				<td width="85%" class="relative trader-list-choose">
+					<input type="text" class="number" [(ngModel)]="inputContract" (focus)="showTraderChoose = true;matchContract(true,false)" (ngModelChange)="matchContract()" />
+					<div id="trader-list-choose" [ngClass]="{'hide':!showTraderChoose}">
+						<ul>
+							<li *ngFor="let item of proList" (click)="inputContract = item.productName;matchContract(false);showTraderChoose=false;">
+								<span class="name">{{item.productName}}</span> <span class="code">{{item.productCode}}</span>
+							</li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>数量:</td>
+				<td class="flex flex-between">
+					<input type="number" [(ngModel)]="traderNum" min="1" class="number num" />
+					<span class="locked"><i class="fa fa-lock" aria-hidden="true"></i> 锁仓</span>
+				</td>
+			</tr>
+			<tr>
+				<td>价格:</td>
+				<td class="flex flex-between">
+					<select class="w60" [(ngModel)]="priceType" (ngModelChange)="reset()">
+						<option value="1">市价</option>
+						<option value="0">限价</option>
+					</select>
+					<div class="limit-price w150 flex flex-between" *ngIf="priceType == '0'">
+						<a class="fa fa-minus b-r-n" aria-hidden="true" (mousedown)="changeLimitPrice(1)" (mouseleave)="clearChangeLimit()" (mouseup)="clearChangeLimit()"></a>
+						<input type="text" class="number w90" readonly="readonly" value="{{limitTraderPrice | number:'1.0-8'}}" />
+						<a class="fa fa-plus b-l-n" aria-hidden="true" (mousedown)="changeLimitPrice(2)" (mouseleave)="clearChangeLimit()" (mouseup)="clearChangeLimit()"></a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="f12 opt-fun" align="right">
+					<mark class="fl" [ngClass]="{'hide':priceType == '1'}">{{DW}} 档</mark>
+					<label>
+						<input type="checkbox" [(ngModel)]="traderTip" />
+						<span>下单提示</span>
+					</label>
+					<a (click)="reset()">复位</a>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="trader-btn flex flex-between">
+					<a class="button red" (click)="traderWaring(1)">
+						<span>{{buyOne | number:'1.0-8'}}</span>
+						<span>买 入</span>
+					</a>
+					<a class="button green" (click)="traderWaring(-1)">
+						<span>{{sellOne | number:'1.0-8'}}</span>
+						<span>卖 出</span>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

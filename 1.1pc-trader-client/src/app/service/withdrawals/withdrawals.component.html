@@ -1,0 +1,72 @@
+<div class="masker"></div>
+<div id="withdrawals">
+	<div class="title flex flex-between">
+		<span>提现</span>
+		<a class="close" (click)="clearHeaderNav()">×</a>
+	</div>
+	<div class="content">
+		<table>
+			<tr *ngIf="!hasAccountPWD">
+				<td align="right"><b class="c_red">*</b> 资金密码:</td>
+				<td colspan="3">
+					<input type="password" maxlength="32" [(ngModel)]="accountPWD" placeholder="请输入资金密码" />
+					<a class="button white" (click)="checkedPWD()">确定</a>
+				</td>
+			</tr>
+			<tr *ngIf="hasAccountPWD">
+				<td width="20%" align="right">银行卡号:</td>
+				<td width="30%">
+					{{bankCar}}
+				</td>
+				<td width="20%" align="right">开户姓名:</td>
+				<td width="30%">
+					{{name}}
+				</td>
+			</tr>
+			<tr *ngIf="hasAccountPWD">
+				<td align="right">身份证号:</td>
+				<td>
+					{{certificateCode}}
+				</td>
+				<td align="right">手机号码:</td>
+				<td>
+					{{phone}}
+				</td>
+			</tr>
+			<tr *ngIf="hasAccountPWD">
+				<td align="right"><b class="c_red">*</b> 提现通道:</td>
+				<td>
+					<select [(ngModel)]="bankMerchantId" (ngModelChange)="checkedPWD()">
+						<option *ngFor="let item of bankList" [value]="item.bankMerchantId">{{item.channelName}}</option>
+					</select>
+				</td>
+				<td align="right">可提金额:</td>
+				<td>
+					{{balance}}
+				</td>
+			</tr>
+			<tr *ngIf="hasAccountPWD">
+				<td align="right"><b class="c_red">*</b> 提现金额:</td>
+				<td>
+					<input type="number" step="100" [(ngModel)]="outGold" placeholder="请输入有效入金金额" />
+				</td>
+				<td align="right">提现备注:</td>
+				<td>
+					<input type="text" [(ngModel)]="comment" maxlength="50" placeholder="请输入备注" />
+				</td>
+			</tr>
+			<tr *ngIf="hasAccountPWD">
+				<td></td>
+				<td colspan='3'>
+					<p class="fl">
+						<a class="button yellow" (click)="withdrawals()">提现</a>
+						<a class="button white" (click)="clearHeaderNav()">取消</a>
+					</p>
+					<span class="error-msg c_red fr" *ngIf="errorMsg !== ''">
+						<i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{errorMsg}}
+					</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

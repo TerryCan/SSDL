@@ -1,0 +1,54 @@
+<div class="masker"></div>
+<div id="gold">
+	<div class="title flex flex-between">
+		<span>账号出金</span>
+		<a class="close" (click)="clearHeaderNav()">×</a>
+	</div>
+	<div class="content">
+		<table>
+			<tr *ngIf="!hasAccountPWD">
+				<td align="right"><b class="c_red">*</b> 资金密码:</td>
+				<td colspan="3">
+					<input type="password" maxlength="32" [(ngModel)]="accountPWD" placeholder="请输入资金密码" />
+					<a class="button white" (click)="checkedPWD()">确定</a>
+				</td>
+			</tr>
+			<tr *ngIf="hasAccountPWD">
+				<td align="right"><b class="c_red">*</b> 银行通道:</td>
+				<td>
+					<select [(ngModel)]="bankMerchantId">
+						<option *ngFor="let item of bankList" [value]="item.bankMerchantId">{{item.channelName}}</option>
+					</select>
+				</td>
+				<td align="right"><!-- 币种: --></td>
+				<td>
+					<!-- <select [(ngModel)]="currency" (ngModelChange)="changeCurrent()">
+						<option *ngFor="let item of currencyList" [value]="item.currency">{{item.currencyName}} ({{item.currencyCode}})</option>
+					</select> -->
+				</td>
+			</tr>
+			<tr *ngIf="hasAccountPWD">
+				<td align="right">可出金额:</td>
+				<td>
+					{{extract}}
+				</td>
+				<td align="right"><b class="c_red">*</b> 出金金额:</td>
+				<td>
+					<input type="number" step="100" [(ngModel)]="outGold" placeholder="请输入有效出金金额" />
+				</td>
+			</tr>
+			<tr *ngIf="hasAccountPWD">
+				<td></td>
+				<td colspan='3'>
+					<p class="fl">
+						<a class="button yellow" (click)="gold()">出金</a>
+						<a class="button white" (click)="clearHeaderNav()">取消</a>
+					</p>
+					<span class="error-msg c_red fr" *ngIf="errorMsg !== ''">
+						<i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{errorMsg}}
+					</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

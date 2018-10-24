@@ -1,0 +1,20 @@
+﻿{
+	"main":"index.html",
+	"build":"2001",
+	"version":"2.0",
+	"name":"资证通",
+	"window":{
+		"icon": "assets/localData/zzt/logo_s.png",
+		"position": "center",
+		"frame": true
+	},
+	"contributors": [
+		{
+			"name": "danny"
+		}
+	],
+	"webkit": {
+		"plugin": false,
+		"page-cache": false
+	}
+}

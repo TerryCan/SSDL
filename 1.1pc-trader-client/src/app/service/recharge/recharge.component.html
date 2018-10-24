@@ -1,0 +1,45 @@
+<div class="masker"></div>
+<div id="recharge">
+	<div class="title flex flex-between">
+		<span>账号充值</span>
+		<a class="close" (click)="clearHeaderNav()">×</a>
+	</div>
+	<div class="content">
+		<table>
+			<tr>
+				<td align="right"><b class="c_red">*</b> 充值通道:</td>
+				<td>
+					<select [(ngModel)]="bankMerchantId" (ngModelChange)="errorMsg = ''">
+						<option *ngFor="let item of payList" [value]="item.bankMerchantId">{{item.channelName}}</option>
+					</select>
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td align="right">银行列表:</td>
+				<td>
+					<select [(ngModel)]="bankId">
+						<option *ngFor="let item of bankList" [value]="item.id">{{item.bankName}}</option>
+					</select>
+				</td>
+				<td align="right"><b class="c_red">*</b> 金额:</td>
+				<td>
+					<input type="number" step="100" [(ngModel)]="payAmt" (ngModelChange)="errorMsg = ''" placeholder="请输入有效充值金额" />
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan='3'>
+					<p class="fl">
+						<a class="button yellow" (click)="recharge()">充值</a>
+						<a class="button white" (click)="clearHeaderNav()">取消</a>
+					</p>
+					<span class="error-msg c_red fr" *ngIf="errorMsg !== ''">
+						<i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{errorMsg}}
+					</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

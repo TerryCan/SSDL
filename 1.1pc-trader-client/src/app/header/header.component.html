@@ -1,0 +1,29 @@
+<header>
+	<ul class="menu">
+		<li *ngFor="let item of navList">
+			<a (click)="columnRouter(item.click)"><i class="{{item.icon}}"></i> {{item.name}}</a>
+			<ul class="submenu">
+				<li *ngFor="let subItem of item.subNav">
+					<a (click)="columnRouter(subItem.click)" [ngClass]="{
+						'hide': subItem.click == 'sign' && isSign == true ||
+								subItem.click == 'reSign' && isSign == false ||
+								subItem.click == 'gold' && isSign == false ||
+								subItem.click == 'intoGold' && isSign == false ||
+								subItem.click == 'recharge' && isSign == false ||
+								subItem.click == 'withdrawals' && isSign == false
+					}" [href]="">
+						<i class="{{subItem.icon}}"></i> {{subItem.name}}
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</header>
+<app-indexs-manage *ngIf="currentNav == 'indexsManage'"></app-indexs-manage>
+<app-sign *ngIf="currentNav == 'sign'"></app-sign>
+<app-resign *ngIf="currentNav == 'reSign'"></app-resign>
+<app-gold *ngIf="currentNav == 'gold'"></app-gold>
+<app-into-gold *ngIf="currentNav == 'intoGold'"></app-into-gold>
+<app-withdrawals *ngIf="currentNav == 'withdrawals'"></app-withdrawals>
+<app-recharge *ngIf="currentNav == 'recharge'"></app-recharge>
+<app-user-information *ngIf="currentNav == 'userInfo'"></app-user-information>

@@ -1,0 +1,7 @@
+<div id="candel-vol"></div>
+<div class="index-text-candel sub" *ngIf="showHoverInfo">
+	<span class="c_white">VOL(5,10): {{hoverInfo.vol | number:'1.2-6'}}</span>
+	<span class="c_white">MAVOL1: {{hoverInfo.ma1 | number:'1.2-6'}}</span>
+	<span class="c_yellow">MAVOL2: {{hoverInfo.ma2 | number:'1.2-6'}}</span>
+</div>
+<app-echart-loading *ngIf="isLoding"></app-echart-loading>

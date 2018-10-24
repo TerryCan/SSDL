@@ -1,0 +1,20 @@
+<div id="confirm" *ngIf="showConfirm">
+	<div class="masker"></div>
+	<div class="confirmColumn">
+		<div class="title">确认信息 <b class="button white" (click)="showConfirm = false;">✖</b></div>
+		<div class="content">
+			<div class="con">
+				<table width="100%">
+					<tr *ngFor="let item of content">
+						<td align="right" width="30%" class="{{item.color}}">{{item.name}}:</td>
+						<td width="70%" class="{{item.color}}">{{item.value}}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="opt">
+				<a class="button yellow" (click)="confirm()">确定</a>
+				<a class="button white" *ngIf="cancel" (click)="showConfirm = false;">取消</a>
+			</div>
+		</div>
+	</div>
+</div>

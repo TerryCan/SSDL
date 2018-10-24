@@ -1,0 +1,52 @@
+<div id="trader-column">
+	<div class="account-info" [ngClass]="{'risk-warning':account.riskCtrlState == 1}">
+		<span><a><i class="fa fa-address-card" aria-hidden="true"></i></a> <b>{{currencyText(account.currency)}}</b></span>
+		<span>可出金额: <a [ngClass]="{'c_red':account.canOutAcount>0,'c_green':account.canOutAcount<0}">{{!account.canOutAcount?'--':(account.canOutAcount).toFixed(2)}}</a></span>
+		<span>浮动盈亏: <a [ngClass]="{'c_red':account.floatProfit>0,'c_green':account.floatProfit<0}">{{!account.floatProfit?'--':(account.floatProfit).toFixed(2)}}</a></span>
+		<span>结余: <a [ngClass]="{'c_red':account.balance>0,'c_green':account.balance<0}">{{!account.balance?'--':(account.balance).toFixed(2)}}</a></span>
+		<span>净值: <a>{{!account.netWorth?'--':(account.netWorth).toFixed(2)}}</a></span>
+		<span>可用保证金: <a>{{!account.usableDeposit?'--':(account.usableDeposit).toFixed(2)}}</a></span>
+		<span>占用保证金: <a>{{!account.deposit?'--':(account.deposit).toFixed(2)}}</a></span>
+		<span>冻结: <a>{{!account.freeze?'--':(account.freeze*-1).toFixed(2)}}</a></span>
+		<span>风险率: <a>{{account.riskRate == null || account.riskRate > 1000000 ?'安全':(account.riskRate).toFixed(4) + ' %'}}</a></span>
+		<span *ngIf="account.riskCtrlState == 1" class="c_yellow">
+			<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+			警告: 账户风险率过低，有被强平的可能
+		</span>
+	</div>
+	<div id="trade-column" class="flex flex-between">
+		<div class="navList">
+			<ul>
+				<li *ngFor="let item of traderList" [ngClass]="{'active':cTrader == item.name}" (click)="changeNav(item.name)">
+					<i class="{{item.icon}}"></i>
+					<a>{{item.name}}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="trade-column" *ngIf="cTrader == '交易' || cTrader == '挂单'">
+			<app-trader></app-trader>
+		</div>
+		<div class="content trade" *ngIf="cTrader == '交易'">
+			<app-position *ngIf="positionTotalDetailShow == 1"></app-position>
+			<app-position-detail *ngIf="positionTotalDetailShow == 2"></app-position-detail>
+			<app-undone-contract *ngIf="positionTotalDetailShow == 3"></app-undone-contract>
+			<p class="tab">
+				<a (click)="positionTotalDetailShow = 1" [ngClass]="{'active':positionTotalDetailShow == 1}">持仓合计</a>
+				<a (click)="positionTotalDetailShow = 2" [ngClass]="{'active':positionTotalDetailShow == 2}">持仓明细</a>
+				<a (click)="positionTotalDetailShow = 3" [ngClass]="{'active':positionTotalDetailShow == 3}">挂单</a>
+			</p>
+		</div>
+		<div class="content" [ngClass]="{'hide':cTrader != '委托'}">
+			<app-entrust></app-entrust>
+		</div>
+		<div class="content" [ngClass]="{'hide':cTrader != '成交'}">
+			<app-deal></app-deal>
+		</div>
+		<div class="content" [ngClass]="{'hide':cTrader != '资金流水'}">
+			<app-capital-flow></app-capital-flow>
+		</div>
+		<div class="content" [ngClass]="{'hide':cTrader != '帮助及说明'}">
+			<app-help></app-help>
+		</div>
+	</div>
+</div>
